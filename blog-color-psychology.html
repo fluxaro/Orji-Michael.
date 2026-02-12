@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Psychology in UI Design: A Designer's Guide - Orji Michael</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-content { animation: fadeIn 0.8s ease; }
+        .blog-image { animation: scaleIn 1s ease; }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-400">5 min read</span>
+                    <button onclick="window.print()" class="text-yellow-400 hover:text-yellow-300">
+                        <i class="fas fa-print text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center blog-content">
+                <span class="text-yellow-400 font-bold text-sm uppercase tracking-wider">Design Theory</span>
+                <h1 class="text-4xl md:text-6xl font-bold mt-4 mb-6">
+                    Color Psychology in UI Design: A Designer's Guide
+                </h1>
+                <div class="flex items-center justify-center space-x-6 text-gray-400">
+                    <span><i class="fas fa-calendar mr-2"></i>December 2025</span>
+                    <span><i class="fas fa-clock mr-2"></i>5 min read</span>
+                    <span><i class="fas fa-user mr-2"></i>Orji Michael</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-16">
+        <div class="w-full">
+            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=1920&h=800&fit=crop" 
+                 alt="Color Psychology" 
+                 class="w-full h-[500px] object-cover blog-image">
+        </div>
+    </section>
+
+    <article class="pb-20 bg-gray-900">
+        <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <div class="max-w-5xl mx-auto">
+                
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">The Power of Color</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Color is one of the most powerful tools in a designer's arsenal. It influences emotions, 
+                        guides user behavior, and shapes brand perception. Understanding color psychology helps you 
+                        create interfaces that not only look beautiful but also communicate effectively and drive action.
+                    </p>
+                    <div class="bg-gradient-to-r from-purple-600 via-pink-600 to-red-600 p-6 rounded-xl text-white">
+                        <p class="text-xl font-bold">
+                            <i class="fas fa-palette mr-3"></i>
+                            90% of snap judgments about products are based on color alone
+                        </p>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Understanding Color Meanings</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Different colors evoke different emotions and associations. Here's what each color communicates:
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gradient-to-r from-red-600 to-red-800 p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <span class="w-12 h-12 bg-red-500 rounded-full mr-4"></span>
+                                Red
+                            </h3>
+                            <p class="text-white mb-3">Energy, passion, urgency, excitement, danger</p>
+                            <p class="text-gray-200 text-sm">Best for: CTAs, alerts, sales, food industry</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-blue-600 to-blue-800 p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <span class="w-12 h-12 bg-blue-500 rounded-full mr-4"></span>
+                                Blue
+                            </h3>
+                            <p class="text-white mb-3">Trust, security, professionalism, calm, stability</p>
+                            <p class="text-gray-200 text-sm">Best for: Finance, healthcare, tech, corporate</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-green-600 to-green-800 p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <span class="w-12 h-12 bg-green-500 rounded-full mr-4"></span>
+                                Green
+                            </h3>
+                            <p class="text-white mb-3">Growth, health, nature, success, harmony</p>
+                            <p class="text-gray-200 text-sm">Best for: Environmental, health, finance (growth)</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-yellow-500 to-yellow-700 p-6 rounded-xl text-gray-900">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <span class="w-12 h-12 bg-yellow-400 rounded-full mr-4"></span>
+                                Yellow
+                            </h3>
+                            <p class="font-semibold mb-3">Optimism, happiness, warmth, caution, creativity</p>
+                            <p class="text-gray-800 text-sm">Best for: Children's products, food, creative industries</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-purple-600 to-purple-800 p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <span class="w-12 h-12 bg-purple-500 rounded-full mr-4"></span>
+                                Purple
+                            </h3>
+                            <p class="text-white mb-3">Luxury, creativity, wisdom, spirituality, mystery</p>
+                            <p class="text-gray-200 text-sm">Best for: Beauty, luxury brands, creative services</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-orange-600 to-orange-800 p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <span class="w-12 h-12 bg-orange-500 rounded-full mr-4"></span>
+                                Orange
+                            </h3>
+                            <p class="text-white mb-3">Enthusiasm, confidence, friendliness, adventure</p>
+                            <p class="text-gray-200 text-sm">Best for: CTAs, entertainment, sports, youth brands</p>
+                        </div>
+
+                        <div class="bg-gradient-to-r from-gray-700 to-gray-900 p-6 rounded-xl border border-gray-600">
+                            <h3 class="text-2xl font-bold mb-3 flex items-center">
+                                <span class="w-12 h-12 bg-gray-800 rounded-full mr-4 border-2 border-white"></span>
+                                Black & Gray
+                            </h3>
+                            <p class="text-white mb-3">Sophistication, elegance, power, formality, neutrality</p>
+                            <p class="text-gray-200 text-sm">Best for: Luxury, fashion, tech, minimalist brands</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <img src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1920&h=700&fit=crop" 
+                         alt="Color Palette" 
+                         class="w-full h-[400px] md:h-[500px] object-cover rounded-lg shadow-xl mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Creating Effective Color Palettes</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        A well-designed color palette creates harmony and guides users through your interface. Here's how to build one:
+                    </p>
+                    
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 p-6 rounded-xl">
+                            <h4 class="font-bold text-xl mb-3 text-yellow-400">1. Choose a Primary Color</h4>
+                            <p class="text-gray-300">This represents your brand and is used for key actions and important elements.</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl">
+                            <h4 class="font-bold text-xl mb-3 text-yellow-400">2. Select Secondary Colors</h4>
+                            <p class="text-gray-300">Complementary colors that support your primary and add variety.</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl">
+                            <h4 class="font-bold text-xl mb-3 text-yellow-400">3. Add Neutral Colors</h4>
+                            <p class="text-gray-300">Grays, whites, and blacks for backgrounds, text, and borders.</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl">
+                            <h4 class="font-bold text-xl mb-3 text-yellow-400">4. Define Semantic Colors</h4>
+                            <p class="text-gray-300">Success (green), error (red), warning (yellow), info (blue).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">The 60-30-10 Rule</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        This classic design principle helps create balanced, visually appealing interfaces:
+                    </p>
+                    <div class="bg-gray-800 p-8 rounded-xl">
+                        <div class="space-y-6">
+                            <div class="flex items-center">
+                                <div class="w-full bg-gray-700 rounded-lg overflow-hidden flex">
+                                    <div class="bg-blue-600 h-16 flex items-center justify-center text-white font-bold" style="width: 60%">
+                                        60% Dominant Color
+                                    </div>
+                                    <div class="bg-yellow-500 h-16 flex items-center justify-center text-gray-900 font-bold" style="width: 30%">
+                                        30% Secondary
+                                    </div>
+                                    <div class="bg-red-500 h-16 flex items-center justify-center text-white font-bold" style="width: 10%">
+                                        10% Accent
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid md:grid-cols-3 gap-4 text-sm">
+                                <div>
+                                    <h5 class="font-bold mb-2">60% - Dominant</h5>
+                                    <p class="text-gray-300">Main background color, sets the overall tone</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-2">30% - Secondary</h5>
+                                    <p class="text-gray-300">Supporting color for sections and elements</p>
+                                </div>
+                                <div>
+                                    <h5 class="font-bold mb-2">10% - Accent</h5>
+                                    <p class="text-gray-300">Highlights, CTAs, important elements</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Color Accessibility</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Accessible color choices ensure everyone can use your interface effectively:
+                    </p>
+                    <div class="space-y-4">
+                        <div class="bg-gray-800 p-6 rounded-xl border-l-4 border-green-500">
+                            <h4 class="font-bold text-xl mb-2 flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                Contrast Ratios
+                            </h4>
+                            <p class="text-gray-300">Maintain at least 4.5:1 contrast ratio for normal text, 3:1 for large text (WCAG AA standard)</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl border-l-4 border-green-500">
+                            <h4 class="font-bold text-xl mb-2 flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                Don't Rely on Color Alone
+                            </h4>
+                            <p class="text-gray-300">Use icons, labels, or patterns alongside color to convey information</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl border-l-4 border-green-500">
+                            <h4 class="font-bold text-xl mb-2 flex items-center">
+                                <i class="fas fa-check-circle text-green-500 mr-3"></i>
+                                Test for Color Blindness
+                            </h4>
+                            <p class="text-gray-300">8% of men and 0.5% of women have some form of color blindness</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Practical Tips</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-xl">
+                            <i class="fas fa-lightbulb text-yellow-400 text-3xl mb-3"></i>
+                            <h4 class="font-bold mb-2">Start with Grayscale</h4>
+                            <p class="text-gray-300 text-sm">Design in grayscale first to focus on hierarchy and layout</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-xl">
+                            <i class="fas fa-eye text-yellow-400 text-3xl mb-3"></i>
+                            <h4 class="font-bold mb-2">Use Color Sparingly</h4>
+                            <p class="text-gray-300 text-sm">Too many colors create visual chaos and confusion</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-xl">
+                            <i class="fas fa-sync text-yellow-400 text-3xl mb-3"></i>
+                            <h4 class="font-bold mb-2">Maintain Consistency</h4>
+                            <p class="text-gray-300 text-sm">Use the same colors for similar actions throughout</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-xl">
+                            <i class="fas fa-users text-yellow-400 text-3xl mb-3"></i>
+                            <h4 class="font-bold mb-2">Consider Your Audience</h4>
+                            <p class="text-gray-300 text-sm">Cultural differences affect color perception</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Conclusion</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        Color is a powerful communication tool that goes beyond aesthetics. By understanding color 
+                        psychology and applying it thoughtfully, you can create interfaces that not only look great 
+                        but also guide users, evoke the right emotions, and drive desired actions. Remember to always 
+                        test your color choices with real users and prioritize accessibility to ensure everyone can 
+                        enjoy your designs.
+                    </p>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-semibold">#ColorTheory</span>
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-semibold">#UIDesign</span>
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-semibold">#Psychology</span>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </article>
+
+    <section class="py-12 bg-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html#blog" class="btn-primary inline-block">
+                <i class="fas fa-arrow-left mr-2"></i> Back to All Articles
+            </a>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-animate').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastering User Research: A Complete Guide - Orji Michael</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .blog-content { animation: fadeIn 0.8s ease; }
+        .blog-image { animation: scaleIn 1s ease; }
+        @keyframes scaleIn {
+            from { opacity: 0; transform: scale(0.95); }
+            to { opacity: 1; transform: scale(1); }
+        }
+        .section-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+        .section-animate.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-white">
+    
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <a href="index.html" class="text-2xl font-bold hover:text-yellow-400 transition-colors">
+                    <i class="fas fa-arrow-left mr-2"></i> Back to Portfolio
+                </a>
+                <div class="flex items-center space-x-4">
+                    <span class="text-gray-400">8 min read</span>
+                    <button onclick="window.print()" class="text-yellow-400 hover:text-yellow-300">
+                        <i class="fas fa-print text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-16 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="max-w-4xl mx-auto text-center blog-content">
+                <span class="text-yellow-400 font-bold text-sm uppercase tracking-wider">Research</span>
+                <h1 class="text-4xl md:text-6xl font-bold mt-4 mb-6">
+                    Mastering User Research: A Complete Guide
+                </h1>
+                <div class="flex items-center justify-center space-x-6 text-gray-400">
+                    <span><i class="fas fa-calendar mr-2"></i>January 2026</span>
+                    <span><i class="fas fa-clock mr-2"></i>8 min read</span>
+                    <span><i class="fas fa-user mr-2"></i>Orji Michael</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="pb-16">
+        <div class="w-full">
+            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=1920&h=800&fit=crop" 
+                 alt="User Research" 
+                 class="w-full h-[500px] object-cover blog-image">
+        </div>
+    </section>
+
+    <article class="pb-20 bg-gray-900">
+        <div class="container mx-auto px-6 lg:px-12 max-w-7xl">
+            <div class="max-w-5xl mx-auto">
+                
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Why User Research Matters</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        User research is the foundation of great design. It helps you understand who your users are, 
+                        what they need, and how they behave. Without proper research, you're essentially designing in the dark.
+                    </p>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        In this comprehensive guide, we'll explore the essential methods, best practices, and tools 
+                        you need to conduct effective user research that drives meaningful design decisions.
+                    </p>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Types of User Research</h2>
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-3 text-yellow-400">Qualitative Research</h3>
+                            <p class="text-gray-300 mb-4">Focuses on understanding the "why" behind user behavior</p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>User Interviews</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Usability Testing</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Field Studies</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Diary Studies</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gradient-to-br from-gray-800 to-gray-700 p-6 rounded-xl">
+                            <h3 class="text-2xl font-bold mb-3 text-yellow-400">Quantitative Research</h3>
+                            <p class="text-gray-300 mb-4">Focuses on measuring and analyzing numerical data</p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Surveys</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Analytics</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>A/B Testing</li>
+                                <li><i class="fas fa-check text-yellow-400 mr-2"></i>Card Sorting</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1920&h=700&fit=crop" 
+                         alt="Interview Process" 
+                         class="w-full h-[400px] md:h-[500px] object-cover rounded-lg shadow-xl mb-8">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Conducting Effective User Interviews</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        User interviews are one of the most powerful research methods. Here's how to conduct them effectively:
+                    </p>
+                    
+                    <div class="space-y-6">
+                        <div class="bg-gray-800 p-6 rounded-xl border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-xl mb-3">1. Prepare Your Questions</h4>
+                            <p class="text-gray-300">Create open-ended questions that encourage detailed responses. Avoid leading questions.</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-xl mb-3">2. Build Rapport</h4>
+                            <p class="text-gray-300">Start with easy questions to make participants comfortable. Show genuine interest in their responses.</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-xl mb-3">3. Listen Actively</h4>
+                            <p class="text-gray-300">Pay attention to what users say and don't say. Follow up on interesting points.</p>
+                        </div>
+                        <div class="bg-gray-800 p-6 rounded-xl border-l-4 border-yellow-400">
+                            <h4 class="font-bold text-xl mb-3">4. Document Everything</h4>
+                            <p class="text-gray-300">Record sessions (with permission) and take detailed notes. Capture quotes and observations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Analyzing Research Data</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed mb-6">
+                        Collecting data is only half the battle. Here's how to analyze it effectively:
+                    </p>
+                    <div class="bg-gray-800 p-8 rounded-xl">
+                        <ul class="space-y-4">
+                            <li class="flex items-start">
+                                <span class="bg-yellow-400 text-gray-900 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 font-bold">1</span>
+                                <div>
+                                    <h4 class="font-bold mb-2">Organize Your Data</h4>
+                                    <p class="text-gray-300">Transcribe interviews, compile survey results, and organize observations systematically.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-yellow-400 text-gray-900 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 font-bold">2</span>
+                                <div>
+                                    <h4 class="font-bold mb-2">Identify Patterns</h4>
+                                    <p class="text-gray-300">Look for recurring themes, behaviors, and pain points across multiple participants.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-yellow-400 text-gray-900 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 font-bold">3</span>
+                                <div>
+                                    <h4 class="font-bold mb-2">Create Personas</h4>
+                                    <p class="text-gray-300">Develop user personas based on your research findings to represent different user types.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="bg-yellow-400 text-gray-900 w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 font-bold">4</span>
+                                <div>
+                                    <h4 class="font-bold mb-2">Generate Insights</h4>
+                                    <p class="text-gray-300">Transform observations into actionable insights that inform design decisions.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Best Practices</h2>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <i class="fas fa-users text-yellow-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold mb-2">Recruit Diverse Participants</h4>
+                            <p class="text-gray-300 text-sm">Include users from different backgrounds and experience levels</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <i class="fas fa-clock text-yellow-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold mb-2">Research Early and Often</h4>
+                            <p class="text-gray-300 text-sm">Don't wait until the end. Conduct research throughout the design process</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <i class="fas fa-lightbulb text-yellow-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold mb-2">Stay Objective</h4>
+                            <p class="text-gray-300 text-sm">Set aside your assumptions and let the data guide you</p>
+                        </div>
+                        <div class="bg-gray-800 p-4 rounded-lg">
+                            <i class="fas fa-share-alt text-yellow-400 text-2xl mb-2"></i>
+                            <h4 class="font-bold mb-2">Share Findings</h4>
+                            <p class="text-gray-300 text-sm">Communicate insights clearly with your team and stakeholders</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <h2 class="text-3xl font-bold mb-6 text-yellow-400">Conclusion</h2>
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        User research is an ongoing process, not a one-time activity. By consistently engaging with your users, 
+                        analyzing their behavior, and translating insights into action, you'll create products that truly meet 
+                        their needs. Remember: the best designs are built on a foundation of solid research.
+                    </p>
+                </div>
+
+                <div class="section-animate mb-12">
+                    <div class="flex flex-wrap gap-3">
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-semibold">#UserResearch</span>
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-semibold">#UXDesign</span>
+                        <span class="bg-yellow-400 text-gray-900 px-4 py-2 rounded-full font-semibold">#UsabilityTesting</span>
+                    </div>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </article>
+
+    <section class="py-12 bg-gray-800">
+        <div class="container mx-auto px-6 text-center">
+            <a href="index.html#blog" class="btn-primary inline-block">
+                <i class="fas fa-arrow-left mr-2"></i> Back to All Articles
+            </a>
+        </div>
+    </section>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.section-animate').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>

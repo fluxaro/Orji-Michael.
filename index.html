@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orji Michael - UI/UX Designer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div class="text-2xl font-bold">
+                    <a href="#home" class="hover:text-yellow-400 transition-colors">Orji Michael</a>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="#home" class="nav-link hover:text-yellow-400 transition-colors">Home</a>
+                    <a href="#about" class="nav-link hover:text-yellow-400 transition-colors">About</a>
+                    <a href="#portfolio" class="nav-link hover:text-yellow-400 transition-colors">Portfolio</a>
+                    <a href="#resume" class="nav-link hover:text-yellow-400 transition-colors">Resume</a>
+                    <a href="#testimonials" class="nav-link hover:text-yellow-400 transition-colors">Testimonials</a>
+                    <a href="#blog" class="nav-link hover:text-yellow-400 transition-colors">Blog</a>
+                    <a href="#contact" class="nav-link hover:text-yellow-400 transition-colors">Contact</a>
+                    <button onclick="openResumeModal()" class="btn-primary">Download Resume</button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-2xl">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-gray-800 border-t border-gray-700">
+            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
+                <a href="#home" class="nav-link hover:text-yellow-400 transition-colors">Home</a>
+                <a href="#about" class="nav-link hover:text-yellow-400 transition-colors">About</a>
+                <a href="#portfolio" class="nav-link hover:text-yellow-400 transition-colors">Portfolio</a>
+                <a href="#resume" class="nav-link hover:text-yellow-400 transition-colors">Resume</a>
+                <a href="#testimonials" class="nav-link hover:text-yellow-400 transition-colors">Testimonials</a>
+                <a href="#blog" class="nav-link hover:text-yellow-400 transition-colors">Blog</a>
+                <a href="#contact" class="nav-link hover:text-yellow-400 transition-colors">Contact</a>
+                <button onclick="openResumeModal()" class="btn-primary w-full">Download Resume</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
+        
+        <!-- Floating Shapes -->
+        <div class="floating-shape" style="top: 15%; left: 10%;">
+            <div class="shape-box">UI/UX</div>
+        </div>
+        <div class="floating-shape" style="top: 60%; left: 15%; animation-delay: 1s;">
+            <div class="shape-circle bg-yellow-400"></div>
+        </div>
+        <div class="floating-shape" style="top: 25%; right: 15%; animation-delay: 2s;">
+            <div class="shape-hexagon bg-green-400"></div>
+        </div>
+        <div class="floating-shape" style="bottom: 20%; right: 10%; animation-delay: 1.5s;">
+            <div class="shape-box">Design</div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 hero-text">
+                    I'm <span class="text-yellow-400">Orji Michael</span>, a UI/UX Designer
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 hero-subtext">
+                    Transforming problems into intuitive digital solutions, creating meaningful digital experiences.
+                </p>
+                <a href="#portfolio" class="btn-primary inline-block">
+                    Get Started <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 relative overflow-hidden">
+        <div class="absolute inset-0 dotted-bg"></div>
+        
+        <!-- Floating Shapes -->
+        <div class="floating-shape" style="top: 10%; right: 5%; animation-delay: 0.5s;">
+            <div class="shape-circle bg-purple-400"></div>
+        </div>
+        <div class="floating-shape" style="bottom: 15%; left: 8%; animation-delay: 1.5s;">
+            <div class="shape-hexagon bg-blue-400"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <!-- Image -->
+                <div class="about-image">
+                    <img src="/Modern_portrait_with_futuristic_backdrop-removebg-preview.png" 
+                         alt="Orji Michael" 
+                         class="rounded-lg shadow-2xl w-full">
+                </div>
+                
+                <!-- Content -->
+                <div class="about-content space-y-6">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-4">I'm Orji Michael</h2>
+                    
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        UI/UX Designer with a strong passion for design and a disciplined approach to my craft. 
+                        I transform problems into intuitive digital solutions, creating products that are functional, 
+                        user-focused, and impactful.
+                    </p>
+                    
+                    <div class="bg-yellow-400 text-gray-900 inline-block px-6 py-3 rounded-lg font-bold text-xl">
+                        3+ YEARS EXPERIENCE
+                    </div>
+                    
+                    <p class="text-gray-300 text-lg leading-relaxed">
+                        A UI/UX Designer focused on creating intuitive, user-centered digital experiences. I translate 
+                        ideas into functional and visually appealing designs by combining research, strategy, and thoughtful 
+                        interface design. I enjoy solving problems through design and building products that are both usable 
+                        and impactful.
+                    </p>
+                    
+                    <div class="space-y-4">
+                        <h3 class="text-2xl font-bold text-yellow-400">What I Do:</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300"><strong>User Research:</strong> Research user needs, pain points, and behaviors</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300"><strong>UI/UX Design:</strong> Create beautiful, functional interfaces</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
+                                <span class="text-gray-300"><strong>User Testing:</strong> Conduct interviews, surveys, and testing</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">My Portfolio</h2>
+                <p class="text-gray-400 text-lg">Showcasing my design work and projects</p>
+            </div>
+            
+            <!-- Personal Projects -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Personal Projects</h3>
+                <div id="personal-projects" class="masonry-grid mb-8"></div>
+                <div class="text-center">
+                    <a href="https://www.figma.com/design/Eebya5kWHMeaG3CeEDU3U3/Project?node-id=0-1&t=UxhblJqhVqPGoAim-1" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block">
+                        View All My Work in Figma <i class="fas fa-external-link-alt ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Real-Life / Client Projects -->
+            <div>
+                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Real-Life / Client Projects</h3>
+                <div id="client-projects" class="grid md:grid-cols-2 xl:grid-cols-3 gap-8"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resume Section -->
+    <section id="resume" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Resume / CV</h2>
+                <p class="text-gray-400 text-lg">My professional journey and qualifications</p>
+            </div>
+            
+            <!-- Experience Timeline -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Experience</h3>
+                <div class="space-y-8">
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/4">
+                                <span class="text-yellow-400 font-bold text-lg">July 2023 – Present</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-2xl font-bold mb-2">Branch Executive Officer</h4>
+                                <p class="text-gray-400 mb-3">United Bank for Africa (UBA), Ikeja, Lagos</p>
+                                <p class="text-gray-300">Coordinated daily administrative and operational workflows for a high-traffic branch, supporting 30–50+ customer interactions per day. Prepared operational reports, improving reporting accuracy by 20–25%.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/4">
+                                <span class="text-yellow-400 font-bold text-lg">Jan 2023 – Oct 2023</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-2xl font-bold mb-2">Teacher</h4>
+                                <p class="text-gray-400 mb-3">Ejivic College, Ilorin, Kwara State</p>
+                                <p class="text-gray-300">Delivered instructional content to classes of 25–40 students. Developed lesson plans, assessments, and evaluation materials contributing to measurable improvements in student comprehension.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/4">
+                                <span class="text-yellow-400 font-bold text-lg">Mar 2021 – Nov 2022</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-2xl font-bold mb-2">Administrative & Virtual Assistant</h4>
+                                <p class="text-gray-400 mb-3">BlueEdge Consult (Remote)</p>
+                                <p class="text-gray-300">Managed executive scheduling, email correspondence, and meeting coordination. Organized cloud-based document systems, improving document retrieval time by approximately 30%.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="flex flex-col md:flex-row gap-6">
+                            <div class="md:w-1/4">
+                                <span class="text-yellow-400 font-bold text-lg">May 2019 – Dec 2020</span>
+                            </div>
+                            <div class="md:w-3/4">
+                                <h4 class="text-2xl font-bold mb-2">Customer Support Specialist</h4>
+                                <p class="text-gray-400 mb-3">3nity Wears, Abakaliki, Ebonyi State</p>
+                                <p class="text-gray-300">Handled 20–40+ customer interactions daily across retail channels. Resolved customer issues efficiently, contributing to improved satisfaction and repeat customer retention.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Education -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Education</h3>
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
+                        <span class="text-yellow-400 font-bold">2024</span>
+                        <h4 class="text-xl font-bold mt-2 mb-1">Masters in Business Administration</h4>
+                        <p class="text-gray-400">Ajayi Crowther University</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
+                        <span class="text-yellow-400 font-bold">2021</span>
+                        <h4 class="text-xl font-bold mt-2 mb-1">Bachelor's in Sociology</h4>
+                        <p class="text-gray-400">Alex Ekwueme Federal University</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Certifications -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Certifications</h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
+                        <h4 class="font-bold mb-2">UI/UX Design Certificate</h4>
+                        <p class="text-gray-400 text-sm">Techcrush, 2025</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
+                        <h4 class="font-bold mb-2">UI/UX Design with Figma</h4>
+                        <p class="text-gray-400 text-sm">Udemy, 2022</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
+                        <h4 class="font-bold mb-2">UI/UX Design Certificate</h4>
+                        <p class="text-gray-400 text-sm">Geneza School of Design, 2022</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
+                        <h4 class="font-bold mb-2">TEFL, 120 Hours</h4>
+                        <p class="text-gray-400 text-sm">2022</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
+                        <h4 class="font-bold mb-2">Human Resource Management</h4>
+                        <p class="text-gray-400 text-sm">University of Ibadan, 2022</p>
+                    </div>
+                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
+                        <h4 class="font-bold mb-2">Public Administration Certification</h4>
+                        <p class="text-gray-400 text-sm">Chartered Institute of Local Government, 2022</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Skills -->
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Skills</h3>
+                <div class="flex flex-wrap gap-4">
+                    <span class="skill-tag">Figma</span>
+                    <span class="skill-tag">Adobe XD</span>
+                    <span class="skill-tag">Photoshop</span>
+                    <span class="skill-tag">User Research</span>
+                    <span class="skill-tag">Wireframing</span>
+                    <span class="skill-tag">Prototyping</span>
+                    <span class="skill-tag">Usability Testing</span>
+                    <span class="skill-tag">UI Design</span>
+                    <span class="skill-tag">UX Strategy</span>
+                </div>
+            </div>
+            
+            <!-- CV Download Button -->
+            <div class="text-center">
+                <button onclick="openResumeModal()" class="btn-primary text-xl px-8 py-4">
+                    <i class="fas fa-download mr-2"></i> View & Download CV
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 bg-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Testimonials</h2>
+                <p class="text-gray-400 text-lg">What clients say about my work</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="p-8">
+                                <i class="fas fa-quote-left text-4xl text-yellow-400 mb-4"></i>
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    Working with you was a great experience. You took time to understand our goals and translated them into a clean, user-friendly design. The final result was intuitive, visually appealing, and aligned perfectly with our brand.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-8 flex flex-col items-center justify-center h-full">
+                                <img src="https://ui-avatars.com/api/?name=Adebayo+Johnson&background=facc15&color=1f2937&size=128&bold=true" 
+                                     alt="Adebayo Johnson" 
+                                     class="w-20 h-20 rounded-full mb-4 object-cover border-4 border-yellow-400">
+                                <h4 class="text-xl font-bold">Adebayo Johnson</h4>
+                                <p class="text-gray-400">CEO, Med Track</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="p-8">
+                                <i class="fas fa-quote-left text-4xl text-yellow-400 mb-4"></i>
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    Thank You for doing this for me. You are too kind. You took this so personal. You are so good at what you do.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-8 flex flex-col items-center justify-center h-full">
+                                <img src="https://ui-avatars.com/api/?name=Chioma+Okafor&background=facc15&color=1f2937&size=128&bold=true" 
+                                     alt="Chioma Okafor" 
+                                     class="w-20 h-20 rounded-full mb-4 object-cover border-4 border-yellow-400">
+                                <h4 class="text-xl font-bold">Chioma Okafor</h4>
+                                <p class="text-gray-400">Owner, Zuch Royal Food</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="p-8">
+                                <i class="fas fa-quote-left text-4xl text-yellow-400 mb-4"></i>
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    What stood out most was your attention to detail. Every screen felt intentional and well thought out. The final design was clean, consistent, and user-friendly.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-8 flex flex-col items-center justify-center h-full">
+                                <img src="https://ui-avatars.com/api/?name=Emeka+Nwosu&background=facc15&color=1f2937&size=128&bold=true" 
+                                     alt="Emeka Nwosu" 
+                                     class="w-20 h-20 rounded-full mb-4 object-cover border-4 border-yellow-400">
+                                <h4 class="text-xl font-bold">Emeka Nwosu</h4>
+                                <p class="text-gray-400">Founder, Clothes Store</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <div class="p-8">
+                                <i class="fas fa-quote-left text-4xl text-yellow-400 mb-4"></i>
+                                <p class="text-gray-300 text-lg leading-relaxed">
+                                    From the initial concept to the final design, you were professional, responsive, and easy to work with. The design exceeded our expectations and clearly improved usability and clarity for our users.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-8 flex flex-col items-center justify-center h-full">
+                                <img src="https://ui-avatars.com/api/?name=Ngozi+Adekunle&background=facc15&color=1f2937&size=128&bold=true" 
+                                     alt="Ngozi Adekunle" 
+                                     class="w-20 h-20 rounded-full mb-4 object-cover border-4 border-yellow-400">
+                                <h4 class="text-xl font-bold">Ngozi Adekunle</h4>
+                                <p class="text-gray-400">Manager, Electronic Store</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Insights & Articles</h2>
+                <p class="text-gray-400 text-lg">Sharing my design thoughts and project insights</p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="flip-card blog-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop" 
+                                 alt="Design Thinking Process" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-6">
+                                <span class="text-yellow-400 text-sm font-bold">UI/UX Design</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">The Power of Design Thinking in Product Development</h3>
+                                <p class="text-gray-400 text-sm">5 min read • Feb 2026</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-6 flex flex-col justify-center h-full">
+                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                                    Discover how design thinking methodology transforms problem-solving and creates user-centered solutions. Learn the five stages: Empathize, Define, Ideate, Prototype, and Test.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Design Thinking</span>
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">UX Strategy</span>
+                                </div>
+                                <a href="blog-design-thinking.html" class="text-yellow-400 font-bold hover:underline">
+                                    Read More <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card blog-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop" 
+                                 alt="User Research" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-6">
+                                <span class="text-yellow-400 text-sm font-bold">Research</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Mastering User Research: A Complete Guide</h3>
+                                <p class="text-gray-400 text-sm">8 min read • Jan 2026</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-6 flex flex-col justify-center h-full">
+                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                                    A comprehensive guide to conducting effective user research. Learn interview techniques, survey design, usability testing, and how to translate insights into actionable design decisions.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">User Research</span>
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Testing</span>
+                                </div>
+                                <a href="blog-user-research.html" class="text-yellow-400 font-bold hover:underline">
+                                    Read More <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card blog-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400&h=300&fit=crop" 
+                                 alt="UI Design Trends" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-6">
+                                <span class="text-yellow-400 text-sm font-bold">Trends</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">2026 UI Design Trends Shaping Digital Experiences</h3>
+                                <p class="text-gray-400 text-sm">6 min read • Jan 2026</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-6 flex flex-col justify-center h-full">
+                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                                    Explore the latest UI design trends including glassmorphism, 3D elements, micro-interactions, and AI-powered personalization that are defining modern digital experiences.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">UI Trends</span>
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Innovation</span>
+                                </div>
+                                <a href="blog-ui-trends.html" class="text-yellow-400 font-bold hover:underline">
+                                    Read More <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card blog-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop" 
+                                 alt="Mobile First Design" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-6">
+                                <span class="text-yellow-400 text-sm font-bold">Mobile Design</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Mobile-First Design: Why It Matters in 2026</h3>
+                                <p class="text-gray-400 text-sm">7 min read • Dec 2025</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-6 flex flex-col justify-center h-full">
+                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                                    Understanding the importance of mobile-first approach in modern design. Learn best practices for responsive design, touch interactions, and optimizing for smaller screens.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Mobile Design</span>
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Responsive</span>
+                                </div>
+                                <a href="blog-mobile-first.html" class="text-yellow-400 font-bold hover:underline">
+                                    Read More <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card blog-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&h=300&fit=crop" 
+                                 alt="Color Psychology" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-6">
+                                <span class="text-yellow-400 text-sm font-bold">Design Theory</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Color Psychology in UI Design: A Designer's Guide</h3>
+                                <p class="text-gray-400 text-sm">5 min read • Dec 2025</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-6 flex flex-col justify-center h-full">
+                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                                    How colors influence user behavior and emotions. Learn to choose the right color palette for your brand and create accessible, visually appealing interfaces.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Color Theory</span>
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Psychology</span>
+                                </div>
+                                <a href="blog-color-psychology.html" class="text-yellow-400 font-bold hover:underline">
+                                    Read More <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flip-card blog-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">
+                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" 
+                                 alt="Design Systems" 
+                                 class="w-full h-48 object-cover rounded-t-lg">
+                            <div class="p-6">
+                                <span class="text-yellow-400 text-sm font-bold">Best Practices</span>
+                                <h3 class="text-xl font-bold mt-2 mb-2">Building Scalable Design Systems from Scratch</h3>
+                                <p class="text-gray-400 text-sm">10 min read • Nov 2025</p>
+                            </div>
+                        </div>
+                        <div class="flip-card-back">
+                            <div class="p-6 flex flex-col justify-center h-full">
+                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
+                                    Create consistent, scalable design systems. Learn about component libraries, design tokens, documentation, and maintaining design consistency across products.
+                                </p>
+                                <div class="flex flex-wrap gap-2 mb-4">
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Design Systems</span>
+                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Components</span>
+                                </div>
+                                <a href="blog-design-systems.html" class="text-yellow-400 font-bold hover:underline">
+                                    Read More <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-800 relative overflow-hidden">
+        <!-- Floating Shapes -->
+        <div class="floating-shape" style="top: 10%; left: 5%; animation-delay: 0.5s;">
+            <div class="shape-circle bg-yellow-400"></div>
+        </div>
+        <div class="floating-shape" style="bottom: 10%; right: 5%; animation-delay: 1s;">
+            <div class="shape-hexagon bg-green-400"></div>
+        </div>
+        
+        <div class="container mx-auto px-6 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
+                <p class="text-gray-400 text-lg">Let's work together on your next project</p>
+            </div>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="grid md:grid-cols-2 gap-12">
+                    <!-- Contact Info -->
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
+                        
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-envelope text-yellow-400 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Email</h4>
+                                <a href="mailto:Lordwhite02@gmail.com" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                                    Lordwhite02@gmail.com
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-phone text-yellow-400 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Phone</h4>
+                                <a href="https://wa.me/2347061646747" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                                    07061646747
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <i class="fas fa-map-marker-alt text-yellow-400 text-2xl mt-1"></i>
+                            <div>
+                                <h4 class="font-bold mb-1">Location</h4>
+                                <p class="text-gray-400">Fadeyi, Yaba, Lagos State</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Contact Form -->
+                    <div>
+                        <form id="contact-form" class="space-y-6">
+                            <div class="form-group">
+                                <label for="name" class="block text-sm font-bold mb-2 text-gray-300">
+                                    <i class="fas fa-user mr-2 text-yellow-400"></i>Your Name
+                                </label>
+                                <input type="text" id="name" name="name" required
+                                       placeholder="Enter your full name"
+                                       class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email" class="block text-sm font-bold mb-2 text-gray-300">
+                                    <i class="fas fa-envelope mr-2 text-yellow-400"></i>Email Address
+                                </label>
+                                <input type="email" id="email" name="email" required
+                                       placeholder="your.email@example.com"
+                                       class="form-input">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message" class="block text-sm font-bold mb-2 text-gray-300">
+                                    <i class="fas fa-comment-dots mr-2 text-yellow-400"></i>Your Message
+                                </label>
+                                <textarea id="message" name="message" rows="5" required
+                                          placeholder="Tell me about your project..."
+                                          class="form-input resize-none"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="btn-primary w-full text-lg py-4">
+                                <i class="fas fa-paper-plane mr-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-800">
+        <div class="container mx-auto px-6">
+            <div class="text-center">
+                <p class="text-gray-400">
+                    &copy; 2026 Orji Michael. All rights reserved.
+                </p>
+                <div class="mt-4 flex justify-center space-x-6">
+                    <a href="https://linkedin.com/in/chisom-orji-30aa45230" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-linkedin text-2xl"></i>
+                    </a>
+                    <a href="https://www.instagram.com/loordwhite?igsh=NTBrMG4xajkxYXhs" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-instagram text-2xl"></i>
+                    </a>
+                    <a href="https://x.com/lordwhite02?s=21" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-x-twitter text-2xl"></i>
+                    </a>
+                    <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-behance text-2xl"></i>
+                    </a>
+                    <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
+                        <i class="fab fa-dribbble text-2xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Resume Modal -->
+    <div id="resume-modal" class="modal">
+        <div class="modal-content" style="max-width: 600px;">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-bold">Download Resume / CV</h3>
+                <button onclick="closeResumeModal()" class="text-3xl hover:text-yellow-400 transition-colors">
+                    &times;
+                </button>
+            </div>
+            
+            <div class="text-center py-8">
+                <i class="fas fa-file-pdf text-yellow-400 text-6xl mb-6"></i>
+                <p class="text-gray-300 text-lg mb-8">Click the button below to download my complete CV</p>
+                <a href="ORJI CHISOM EZE_CV.pdf" download="Orji_Chisom_Eze_CV.pdf" class="btn-primary inline-block text-xl px-8 py-4">
+                    <i class="fas fa-download mr-2"></i> Download CV
+                </a>
+            </div>
+        </div>
+    </div>
+     
+            
+            <div class="text-center">
+                <a href="ORJI CHISOM EZE_CV.pdf" download="Orji_Chisom_Eze_CV.pdf" class="btn-primary inline-block">
+                    <i class="fas fa-download mr-2"></i> Download CV as PDF
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
