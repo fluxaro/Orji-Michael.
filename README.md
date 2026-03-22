@@ -75,7 +75,7 @@ const clientProjects = [
 
 ### Updating Contact Information
 
-- Email: Lordwhite02@gmail.com
+- Email: Orjiezechisom82@gmail.com
 - Phone: 07061646747
 - Location: Fadeyi, Yaba, Lagos State
 - WhatsApp: 07061646747
