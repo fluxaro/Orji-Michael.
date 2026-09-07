@@ -1,99 +1,65 @@
-# Orji Michael - UI/UX Designer Portfolio
+# Orji Michael — Senior UI/UX Product Designer Portfolio
 
-A premium, professional, and fully responsive portfolio website for UI/UX Designer Orji Michael.
+A high-performance, responsive editorial portfolio website for **Orji Michael** (Senior UI/UX Product Designer & Design Strategist).
 
-## Features
+## 🌟 Strategic Narrative: The "T-Shaped" Advantage
 
-- **Fully Responsive**: Works seamlessly on TV, desktop, laptop, tablet, and mobile devices
-- **Smooth Animations**: Professional fade, slide, scale, tilt, and flip card effects
-- **Dynamic Layout**: JavaScript automatically calculates and adjusts portfolio grid based on image sizes
-- **Interactive Sections**:
-  - Hero section with floating geometric shapes
-  - About section with detailed background
-  - Portfolio with personal and client projects
-  - Complete resume/CV with modal preview
-  - Testimonials with flip card effects
-  - Blog section (placeholder)
-  - Contact form with WhatsApp integration
+Orji combines a unique intersection of disciplines that sets him apart in the global design market:
+- **Sociology (B.Sc., Alex Ekwueme Federal University)**: Behavioral empathy, qualitative user inquiry, psychological friction point analysis, and user motivation modeling.
+- **Business Administration (MBA, Ajayi Crowther University)**: Commercial acumen, conversion rate optimization (CRO), KPI alignment, retention metrics, and product ROI.
+- **UI/UX Craft & Systems (Techcrush, Geneza, Udemy)**: Atomic design tokens, scalable Figma systems, WCAG compliance, interactive prototyping, and engineering handoff.
 
-## Sections
+---
 
-1. **Navigation**: Sticky navbar with smooth scroll and active section highlighting
-2. **Hero**: Full-width introduction with floating shapes and CTA button
-3. **About**: Professional background with experience highlights
-4. **Portfolio**: 
-   - Personal projects in masonry grid with flip cards
-   - Client projects with embedded previews
-5. **Resume**: Complete CV with experience, education, certifications, and skills
-6. **Testimonials**: Client feedback with interactive flip cards
-7. **Blog**: Placeholder articles with flip card previews
-8. **Contact**: Form with WhatsApp integration and contact information
+## 🚀 Key Features & Design System
 
-## Technologies Used
+- **Warm Editorial Blueprint Aesthetic**: Minimalist drafting paper canvas (`#FBFBFA`) with architectural grid lines, high-contrast dark contrast cards, and vibrant International Safety Orange (`#FF5500`) accents.
+- **Crisp, Zero-Glow Architecture**: Clean, flat matte surfaces, zero artificial drop shadow halos, and razor-sharp typographic outlines.
+- **Display Typography**: **Bebas Neue** (condensed display headline) paired with **Plus Jakarta Sans** (humanist body) and **JetBrains Mono** (metrics & technical tokens).
+- **Interactive Live Client Embeds**: Embedded interactive `<iframe>` previews for all 6 live production client sites with scroll shield protection and full-screen preview modals.
+- **Collision-Free Physical Tape Stickers**: Tactile physical design stickers that float in outer drafting margins on wide desktop and adapt to clean inline badges on tablets/mobile without overlapping text.
+- **Universal Mobile Responsiveness**: Touch-friendly buttons (min 44px height), swipeable responsive filter bar, and break-proof fluid clamp typography.
+- **Discovery Inquiry Form**: Scope selection chips that format structured WhatsApp or email project inquiries.
+- **Real-Time Lagos Clock**: Live WAT (GMT+1) time ticker.
 
-- HTML5
-- Tailwind CSS (via CDN)
-- Vanilla JavaScript
-- Font Awesome Icons
-- Google Fonts (Inter)
+---
 
-## Setup Instructions
+## 📂 Project Showcase
 
-1. Open `index.html` in a modern web browser
-2. No build process or dependencies required
-3. All assets are loaded via CDN
+### Production Client Platforms (6 Projects with Live Interactive Embeds)
+1. **Med Track**: Healthcare & patient vitals monitoring platform (`https://med-track-rho.vercel.app/`).
+2. **Apply Bureau**: Global student admissions, career coaching, and visa application portal (`https://www.applybureau.com/`).
+3. **Zuch Royal Food**: Artisanal culinary brand and digital food ordering hub (`https://zuch-royal-food.vercel.app/`).
+4. **Clothes Store**: Modern fashion e-commerce storefront with streamlined checkout (`https://clothes-stores-eta.vercel.app`).
+5. **Electronic Store**: Tech retail electronics marketplace with spec comparisons (`https://electronic-store-omega.vercel.app`).
+6. **Movies Website**: Media streaming platform with dark-mode interface (`https://movies-website-three-livid.vercel.app/`).
 
-## Customization
+### Figma Systems & Prototypes (14 Projects)
+- NeoPay Banking App, SoleVault Footwear Store, CyberGuard Security Dashboard, FitPulse Workout Platform, Haven Realty, The Future of Art Web3 Gallery, ApexBet Sportsbook, FoodieHub (Light & Dark UI), Nova Smart Home, SaaS Flow Landing Page, Apply Bureau Mobile Flow, Biometric Auth Flow, and Calculator Engine.
 
-### Adding Portfolio Projects
+---
 
-Edit the `personalProjects` array in `script.js`:
+## 🛠️ Technology Stack
 
-```javascript
-const personalProjects = [
-    {
-        title: 'Your Project Title',
-        image: 'path/to/your/image.jpg',
-        figmaLink: 'https://figma.com/your-project'
-    }
-];
-```
+- **HTML5 & CSS3**: Semantic structure, CSS custom properties, fluid clamp typography, drafting grid backgrounds.
+- **Tailwind CSS (CDN)**: Layout grid and responsive utility classes.
+- **Vanilla JavaScript (ES6+)**: Zero dependencies, lightweight high-performance interactive engine.
+- **Google Fonts**: *Bebas Neue*, *Plus Jakarta Sans*, and *JetBrains Mono*.
+- **Font Awesome 6.5**: Crisp scalable vector icons.
 
-### Adding Client Projects
+---
 
-Edit the `clientProjects` array in `script.js`:
+## 📞 Contact Information
 
-```javascript
-const clientProjects = [
-    {
-        title: 'Project Title',
-        description: 'Project description',
-        liveLink: 'https://your-live-site.com'
-    }
-];
-```
+- **Email**: Orjiezechisom82@gmail.com
+- **Phone / WhatsApp**: +234 706 164 6747
+- **Location**: Fadeyi, Yaba, Lagos State, Nigeria (WAT / GMT+1)
+- **LinkedIn**: [chisom-orji-30aa45230](https://linkedin.com/in/chisom-orji-30aa45230)
+- **X (Twitter)**: [@lordwhite02](https://x.com/lordwhite02?s=21)
+- **Instagram**: [@loordwhite](https://www.instagram.com/loordwhite?igsh=NTBrMG4xajkxYXhs)
 
-### Updating Contact Information
+---
 
-- Email: Orjiezechisom82@gmail.com
-- Phone: 07061646747
-- Location: Fadeyi, Yaba, Lagos State
-- WhatsApp: 07061646747
-
-## Browser Support
-
-- Chrome (latest)
-- Firefox (latest)
-- Safari (latest)
-- Edge (latest)
-
-## Performance
-
-- Optimized animations for smooth 60fps performance
-- Lazy loading for images
-- Efficient scroll event handling
-- Minimal JavaScript footprint
-
-## License
+## 📄 License
 
 © 2026 Orji Michael. All rights reserved.

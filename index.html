@@ -3,752 +3,995 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Orji Michael - UI/UX Designer Portfolio</title>
+    <title>Orji Michael — Senior UI/UX Product Designer & Design Strategist</title>
+    <meta name="description" content="Portfolio of Orji Michael — UI/UX Designer combining behavioral psychology (Sociology) and commercial strategy (MBA) to design intuitive digital experiences with purpose.">
+    <meta name="keywords" content="Orji Michael, UI/UX Designer, Product Designer, Figma, Design Systems, Lagos Nigeria, UX Research">
+    
+    <!-- Open Graph Meta -->
+    <meta property="og:title" content="Orji Michael — Senior UI/UX Product Designer">
+    <meta property="og:description" content="I design digital experiences with purpose.">
+    <meta property="og:type" content="website">
+    
+    <!-- Tailwind CSS (CDN) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        canvas: '#FBFBFA',
+                        ink: '#111111',
+                        accentOrange: '#FF5500',
+                        accentPeach: '#FFE8DC',
+                        darkCard: '#121214'
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Design System Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
-<body class="bg-gray-900 text-white overflow-x-hidden">
-    
-    <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold">
-                    <a href="#home" class="hover:text-yellow-400 transition-colors">Orji Michael</a>
-                </div>
-                
-                <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#home" class="nav-link hover:text-yellow-400 transition-colors">Home</a>
-                    <a href="#about" class="nav-link hover:text-yellow-400 transition-colors">About</a>
-                    <a href="#portfolio" class="nav-link hover:text-yellow-400 transition-colors">Portfolio</a>
-                    <a href="#resume" class="nav-link hover:text-yellow-400 transition-colors">Resume</a>
-                    <a href="#testimonials" class="nav-link hover:text-yellow-400 transition-colors">Testimonials</a>
-                    <a href="#blog" class="nav-link hover:text-yellow-400 transition-colors">Blog</a>
-                    <a href="#contact" class="nav-link hover:text-yellow-400 transition-colors">Contact</a>
-                    <button onclick="openResumeModal()" class="btn-primary">Download Resume</button>
-                </div>
-                
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden text-2xl">
-                    <i class="fas fa-bars"></i>
-                </button>
-            </div>
-        </div>
-        
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden lg:hidden bg-gray-800 border-t border-gray-700">
-            <div class="container mx-auto px-6 py-4 flex flex-col space-y-4">
-                <a href="#home" class="nav-link hover:text-yellow-400 transition-colors">Home</a>
-                <a href="#about" class="nav-link hover:text-yellow-400 transition-colors">About</a>
-                <a href="#portfolio" class="nav-link hover:text-yellow-400 transition-colors">Portfolio</a>
-                <a href="#resume" class="nav-link hover:text-yellow-400 transition-colors">Resume</a>
-                <a href="#testimonials" class="nav-link hover:text-yellow-400 transition-colors">Testimonials</a>
-                <a href="#blog" class="nav-link hover:text-yellow-400 transition-colors">Blog</a>
-                <a href="#contact" class="nav-link hover:text-yellow-400 transition-colors">Contact</a>
-                <button onclick="openResumeModal()" class="btn-primary w-full">Download Resume</button>
-            </div>
-        </div>
-    </nav>
+<body class="bg-canvas text-ink selection:bg-accentOrange selection:text-white">
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-        <div class="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"></div>
-        
-        <!-- Floating Shapes -->
-        <div class="floating-shape" style="top: 15%; left: 10%;">
-            <div class="shape-box">UI/UX</div>
-        </div>
-        <div class="floating-shape" style="top: 60%; left: 15%; animation-delay: 1s;">
-            <div class="shape-circle bg-yellow-400"></div>
-        </div>
-        <div class="floating-shape" style="top: 25%; right: 15%; animation-delay: 2s;">
-            <div class="shape-hexagon bg-green-400"></div>
-        </div>
-        <div class="floating-shape" style="bottom: 20%; right: 10%; animation-delay: 1.5s;">
-            <div class="shape-box">Design</div>
-        </div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center max-w-4xl mx-auto">
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 hero-text">
-                    I'm <span class="text-yellow-400">Orji Michael</span>, a UI/UX Designer
-                </h1>
-                <p class="text-xl md:text-2xl text-gray-300 mb-8 hero-subtext">
-                    Transforming problems into intuitive digital solutions, creating meaningful digital experiences.
-                </p>
-                <a href="#portfolio" class="btn-primary inline-block">
-                    Get Started <i class="fas fa-arrow-right ml-2"></i>
+    <!-- Toast Notification -->
+    <div id="toast-notification" role="status" aria-live="polite">
+        <i class="fas fa-check-circle text-accentOrange text-lg"></i>
+        <span id="toast-message">Copied to clipboard!</span>
+    </div>
+
+    <!-- =========================================================================
+         HEADER / NAVIGATION
+         ========================================================================= -->
+    <header class="fixed top-0 left-0 right-0 z-50 px-4 sm:px-8 py-4 sm:py-5 transition-all duration-300 bg-canvas/85 backdrop-blur-md border-b border-black/5" id="main-header">
+        <div class="max-w-7xl mx-auto flex items-center justify-between">
+            
+            <!-- Left: Monogram Brand & Availability Status -->
+            <a href="#about" class="flex items-center gap-2.5 text-decoration-none group">
+                <span class="w-8 h-8 rounded bg-black text-white font-headline text-base flex items-center justify-center tracking-wider group-hover:bg-accentOrange transition-colors">OM</span>
+                <span class="font-mono text-xs uppercase tracking-widest text-slate-900 font-bold">ORJI MICHAEL</span>
+                <div class="hidden sm:flex items-center gap-2 pl-2 border-l border-black/10">
+                    <span class="pulse-dot"></span>
+                    <span class="font-mono text-[10px] sm:text-xs uppercase tracking-wider text-slate-600 font-semibold">AVAILABLE FOR PROJECTS</span>
+                </div>
+            </a>
+
+            <!-- Center: Segmented Pill Navigation (Desktop) -->
+            <nav class="hidden md:flex items-center gap-1 nav-pill-group" id="navbar">
+                <a href="#about" class="nav-pill-item active">ABOUT ME</a>
+                <a href="#services" class="nav-pill-item">SERVICES</a>
+                <a href="#projects" class="nav-pill-item">PROJECTS</a>
+                <a href="#approach" class="nav-pill-item">APPROACH</a>
+                <a href="#resume" class="nav-pill-item">RESUME</a>
+            </nav>
+
+            <!-- Right: Contact CTA Button & Mobile Toggle -->
+            <div class="flex items-center gap-2 sm:gap-3">
+                <a href="#contact" class="btn-orange text-xs py-2 px-3 sm:px-5 sm:py-2.5">
+                    <span>CONTACT</span>
+                    <i class="fas fa-arrow-up-right-from-square text-[10px]"></i>
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 dotted-bg"></div>
-        
-        <!-- Floating Shapes -->
-        <div class="floating-shape" style="top: 10%; right: 5%; animation-delay: 0.5s;">
-            <div class="shape-circle bg-purple-400"></div>
-        </div>
-        <div class="floating-shape" style="bottom: 15%; left: 8%; animation-delay: 1.5s;">
-            <div class="shape-hexagon bg-blue-400"></div>
-        </div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <!-- Image -->
-                <div class="about-image">
-                    <img src="/Modern_portrait_with_futuristic_backdrop-removebg-preview.png" 
-                         alt="Orji Michael" 
-                         class="rounded-lg shadow-2xl w-full">
-                </div>
-                
-                <!-- Content -->
-                <div class="about-content space-y-6">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-4">I'm Orji Michael</h2>
-                    
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        UI/UX Designer with a strong passion for design and a disciplined approach to my craft. 
-                        I transform problems into intuitive digital solutions, creating products that are functional, 
-                        user-focused, and impactful.
-                    </p>
-                    
-                    <div class="bg-yellow-400 text-gray-900 inline-block px-6 py-3 rounded-lg font-bold text-xl">
-                        3+ YEARS EXPERIENCE
-                    </div>
-                    
-                    <p class="text-gray-300 text-lg leading-relaxed">
-                        A UI/UX Designer focused on creating intuitive, user-centered digital experiences. I translate 
-                        ideas into functional and visually appealing designs by combining research, strategy, and thoughtful 
-                        interface design. I enjoy solving problems through design and building products that are both usable 
-                        and impactful.
-                    </p>
-                    
-                    <div class="space-y-4">
-                        <h3 class="text-2xl font-bold text-yellow-400">What I Do:</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
-                                <span class="text-gray-300"><strong>User Research:</strong> Research user needs, pain points, and behaviors</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
-                                <span class="text-gray-300"><strong>UI/UX Design:</strong> Create beautiful, functional interfaces</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-yellow-400 mt-1 mr-3"></i>
-                                <span class="text-gray-300"><strong>User Testing:</strong> Conduct interviews, surveys, and testing</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">My Portfolio</h2>
-                <p class="text-gray-400 text-lg">Showcasing my design work and projects</p>
-            </div>
-            
-            <!-- Personal Projects -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Personal Projects</h3>
-                <div id="personal-projects" class="masonry-grid mb-8"></div>
-                <div class="text-center">
-                    <a href="https://www.figma.com/design/Eebya5kWHMeaG3CeEDU3U3/Project?node-id=0-1&t=UxhblJqhVqPGoAim-1" target="_blank" rel="noopener noreferrer" class="btn-primary inline-block">
-                        View All My Work in Figma <i class="fas fa-external-link-alt ml-2"></i>
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Real-Life / Client Projects -->
-            <div>
-                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Real-Life / Client Projects</h3>
-                <div id="client-projects" class="grid md:grid-cols-2 xl:grid-cols-3 gap-8"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Resume Section -->
-    <section id="resume" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Resume / CV</h2>
-                <p class="text-gray-400 text-lg">My professional journey and qualifications</p>
-            </div>
-            
-            <!-- Experience Timeline -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Experience</h3>
-                <div class="space-y-8">
-                    <div class="timeline-item">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/4">
-                                <span class="text-yellow-400 font-bold text-lg">July 2023 – Present</span>
-                            </div>
-                            <div class="md:w-3/4">
-                                <h4 class="text-2xl font-bold mb-2">Branch Executive Officer</h4>
-                                <p class="text-gray-400 mb-3">United Bank for Africa (UBA), Ikeja, Lagos</p>
-                                <p class="text-gray-300">Coordinated daily administrative and operational workflows for a high-traffic branch, supporting 30–50+ customer interactions per day. Prepared operational reports, improving reporting accuracy by 20–25%.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/4">
-                                <span class="text-yellow-400 font-bold text-lg">Jan 2023 – Oct 2023</span>
-                            </div>
-                            <div class="md:w-3/4">
-                                <h4 class="text-2xl font-bold mb-2">Teacher</h4>
-                                <p class="text-gray-400 mb-3">Ejivic College, Ilorin, Kwara State</p>
-                                <p class="text-gray-300">Delivered instructional content to classes of 25–40 students. Developed lesson plans, assessments, and evaluation materials contributing to measurable improvements in student comprehension.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/4">
-                                <span class="text-yellow-400 font-bold text-lg">Mar 2021 – Nov 2022</span>
-                            </div>
-                            <div class="md:w-3/4">
-                                <h4 class="text-2xl font-bold mb-2">Administrative & Virtual Assistant</h4>
-                                <p class="text-gray-400 mb-3">BlueEdge Consult (Remote)</p>
-                                <p class="text-gray-300">Managed executive scheduling, email correspondence, and meeting coordination. Organized cloud-based document systems, improving document retrieval time by approximately 30%.</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="timeline-item">
-                        <div class="flex flex-col md:flex-row gap-6">
-                            <div class="md:w-1/4">
-                                <span class="text-yellow-400 font-bold text-lg">May 2019 – Dec 2020</span>
-                            </div>
-                            <div class="md:w-3/4">
-                                <h4 class="text-2xl font-bold mb-2">Customer Support Specialist</h4>
-                                <p class="text-gray-400 mb-3">3nity Wears, Abakaliki, Ebonyi State</p>
-                                <p class="text-gray-300">Handled 20–40+ customer interactions daily across retail channels. Resolved customer issues efficiently, contributing to improved satisfaction and repeat customer retention.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Education -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Education</h3>
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
-                        <span class="text-yellow-400 font-bold">2024</span>
-                        <h4 class="text-xl font-bold mt-2 mb-1">Masters in Business Administration</h4>
-                        <p class="text-gray-400">Ajayi Crowther University</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
-                        <span class="text-yellow-400 font-bold">2021</span>
-                        <h4 class="text-xl font-bold mt-2 mb-1">Bachelor's in Sociology</h4>
-                        <p class="text-gray-400">Alex Ekwueme Federal University</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Certifications -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Certifications</h3>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
-                        <h4 class="font-bold mb-2">UI/UX Design Certificate</h4>
-                        <p class="text-gray-400 text-sm">Techcrush, 2025</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
-                        <h4 class="font-bold mb-2">UI/UX Design with Figma</h4>
-                        <p class="text-gray-400 text-sm">Udemy, 2022</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
-                        <h4 class="font-bold mb-2">UI/UX Design Certificate</h4>
-                        <p class="text-gray-400 text-sm">Geneza School of Design, 2022</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
-                        <h4 class="font-bold mb-2">TEFL, 120 Hours</h4>
-                        <p class="text-gray-400 text-sm">2022</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
-                        <h4 class="font-bold mb-2">Human Resource Management</h4>
-                        <p class="text-gray-400 text-sm">University of Ibadan, 2022</p>
-                    </div>
-                    <div class="bg-gray-800 p-6 rounded-lg timeline-item">
-                        <h4 class="font-bold mb-2">Public Administration Certification</h4>
-                        <p class="text-gray-400 text-sm">Chartered Institute of Local Government, 2022</p>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Skills -->
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold mb-8 text-yellow-400">Skills</h3>
-                <div class="flex flex-wrap gap-4">
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">Adobe XD</span>
-                    <span class="skill-tag">Photoshop</span>
-                    <span class="skill-tag">User Research</span>
-                    <span class="skill-tag">Wireframing</span>
-                    <span class="skill-tag">Prototyping</span>
-                    <span class="skill-tag">Usability Testing</span>
-                    <span class="skill-tag">UI Design</span>
-                    <span class="skill-tag">UX Strategy</span>
-                </div>
-            </div>
-            
-            <!-- CV Download Button -->
-            <div class="text-center">
-                <button onclick="openResumeModal()" class="btn-primary text-xl px-8 py-4">
-                    <i class="fas fa-download mr-2"></i> View & Download CV
+                <button id="mobile-menu-btn" class="md:hidden w-10 h-10 rounded-full border border-black/10 flex items-center justify-center text-ink hover:bg-black/5 transition-colors" aria-label="Toggle navigation menu">
+                    <i class="fas fa-bars text-sm"></i>
                 </button>
             </div>
         </div>
-    </section>
 
-    <!-- Testimonials Section -->
-    <section id="testimonials" class="py-20 bg-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Testimonials</h2>
-                <p class="text-gray-400 text-lg">What clients say about my work</p>
-            </div>
-            
-            <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="p-8">
-                                <i class="fas fa-quote-left text-4xl text-yellow-400 mb-4"></i>
-                                <p class="text-gray-300 text-lg leading-relaxed">
-                                    Working with you was a great experience. You took time to understand our goals and translated them into a clean, user-friendly design. The final result was intuitive, visually appealing, and aligned perfectly with our brand.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-8 flex flex-col items-center justify-center h-full">
-                                <img src="https://ui-avatars.com/api/?name=Adebayo+Johnson&background=facc15&color=1f2937&size=128&bold=true" 
-                                     alt="Adebayo Johnson" 
-                                     class="w-20 h-20 rounded-full mb-4 object-cover border-4 border-yellow-400">
-                                <h4 class="text-xl font-bold">Adebayo Johnson</h4>
-                                <p class="text-gray-400">CEO, Med Track</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="p-8">
-                                <i class="fas fa-quote-left text-4xl text-yellow-400 mb-4"></i>
-                                <p class="text-gray-300 text-lg leading-relaxed">
-                                    Thank You for doing this for me. You are too kind. You took this so personal. You are so good at what you do.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-8 flex flex-col items-center justify-center h-full">
-                                <img src="https://ui-avatars.com/api/?name=Chioma+Okafor&background=facc15&color=1f2937&size=128&bold=true" 
-                                     alt="Chioma Okafor" 
-                                     class="w-20 h-20 rounded-full mb-4 object-cover border-4 border-yellow-400">
-                                <h4 class="text-xl font-bold">Chioma Okafor</h4>
-                                <p class="text-gray-400">Owner, Zuch Royal Food</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="p-8">
-                                <i class="fas fa-quote-left text-4xl text-yellow-400 mb-4"></i>
-                                <p class="text-gray-300 text-lg leading-relaxed">
-                                    What stood out most was your attention to detail. Every screen felt intentional and well thought out. The final design was clean, consistent, and user-friendly.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-8 flex flex-col items-center justify-center h-full">
-                                <img src="https://ui-avatars.com/api/?name=Emeka+Nwosu&background=facc15&color=1f2937&size=128&bold=true" 
-                                     alt="Emeka Nwosu" 
-                                     class="w-20 h-20 rounded-full mb-4 object-cover border-4 border-yellow-400">
-                                <h4 class="text-xl font-bold">Emeka Nwosu</h4>
-                                <p class="text-gray-400">Founder, Clothes Store</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flip-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <div class="p-8">
-                                <i class="fas fa-quote-left text-4xl text-yellow-400 mb-4"></i>
-                                <p class="text-gray-300 text-lg leading-relaxed">
-                                    From the initial concept to the final design, you were professional, responsive, and easy to work with. The design exceeded our expectations and clearly improved usability and clarity for our users.
-                                </p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-8 flex flex-col items-center justify-center h-full">
-                                <img src="https://ui-avatars.com/api/?name=Ngozi+Adekunle&background=facc15&color=1f2937&size=128&bold=true" 
-                                     alt="Ngozi Adekunle" 
-                                     class="w-20 h-20 rounded-full mb-4 object-cover border-4 border-yellow-400">
-                                <h4 class="text-xl font-bold">Ngozi Adekunle</h4>
-                                <p class="text-gray-400">Manager, Electronic Store</p>
-                            </div>
-                        </div>
-                    </div>
+        <!-- Mobile Drawer Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-3 max-w-7xl mx-auto bg-white border border-black/10 rounded-2xl p-6 shadow-sm max-h-[85vh] overflow-y-auto">
+            <div class="flex flex-col gap-3 font-mono text-sm uppercase">
+                <a href="#about" class="mobile-nav-link text-slate-700 hover:text-accentOrange py-2 font-semibold">ABOUT ME</a>
+                <a href="#services" class="mobile-nav-link text-slate-700 hover:text-accentOrange py-2 font-semibold">SERVICES</a>
+                <a href="#projects" class="mobile-nav-link text-slate-700 hover:text-accentOrange py-2 font-semibold">PROJECTS</a>
+                <a href="#approach" class="mobile-nav-link text-slate-700 hover:text-accentOrange py-2 font-semibold">APPROACH</a>
+                <a href="#resume" class="mobile-nav-link text-slate-700 hover:text-accentOrange py-2 font-semibold">RESUME</a>
+                <div class="pt-4 border-t border-black/10 flex gap-3">
+                    <button onclick="openResumeModal()" class="w-full btn-dark py-3 text-xs">
+                        <i class="fas fa-file-pdf mr-2 text-accentOrange"></i> Download CV
+                    </button>
                 </div>
             </div>
         </div>
-    </section>
+    </header>
 
-    <!-- Blog Section -->
-    <section id="blog" class="py-20">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Insights & Articles</h2>
-                <p class="text-gray-400 text-lg">Sharing my design thoughts and project insights</p>
-            </div>
+    <!-- =========================================================================
+         HERO SECTION (EXACT REFERENCE DESIGN)
+         ========================================================================= -->
+    <section id="about" class="min-h-screen relative pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-24 flex items-center blueprint-grid overflow-hidden border-b border-black/5">
+
+        <!-- Architectural Drafting Registration Crosses (+) -->
+        <div class="drafting-cross top-left" aria-hidden="true">+</div>
+        <div class="drafting-cross top-right" aria-hidden="true">+</div>
+        <div class="drafting-cross bottom-left" aria-hidden="true">+</div>
+        <div class="drafting-cross bottom-right" aria-hidden="true">+</div>
+
+        <!-- Tilted Physical Tape Stickers (Visible on Wide Desktop ≥ 1360px, Never Overlaps Text) -->
+        <div class="sticker-tape sticker-tape-left" aria-hidden="true">
+            SPECIALIZATION - UI/UX & PRODUCT DESIGN &bull; TOOLS - FIGMA
+        </div>
+
+        <div class="sticker-tape sticker-tape-right" aria-hidden="true">
+            I DON'T JUST DESIGN INTERFACES, I SOLVE PROBLEMS THROUGH DESIGN.
+        </div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 w-full relative z-10 text-center">
             
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="flip-card blog-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=300&fit=crop" 
-                                 alt="Design Thinking Process" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-6">
-                                <span class="text-yellow-400 text-sm font-bold">UI/UX Design</span>
-                                <h3 class="text-xl font-bold mt-2 mb-2">The Power of Design Thinking in Product Development</h3>
-                                <p class="text-gray-400 text-sm">5 min read • Feb 2026</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-6 flex flex-col justify-center h-full">
-                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-                                    Discover how design thinking methodology transforms problem-solving and creates user-centered solutions. Learn the five stages: Empathize, Define, Ideate, Prototype, and Test.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Design Thinking</span>
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">UX Strategy</span>
-                                </div>
-                                <a href="blog-design-thinking.html" class="text-yellow-400 font-bold hover:underline">
-                                    Read More <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+            <!-- Hero Top Header Tag (Clean, Centered, Matching Reference Image) -->
+            <div class="relative flex items-center justify-center mb-6 sm:mb-8">
+                <span class="badge-pill">ABOUT ME</span>
+                <span class="hidden sm:inline-block absolute right-0 font-mono text-xs text-slate-500 tracking-widest uppercase font-semibold">
+                    <span class="text-accentOrange">//</span> UI/UX DESIGNER
+                </span>
+            </div>
+
+            <!-- Massive Condensed Headline (Break-Proof & Fluid Clamping) -->
+            <h1 class="hero-headline">
+                <span class="headline-line">I DESIGN DIGITAL</span>
+                <span class="headline-line">EXPERIENCES WITH</span>
+                <span class="headline-line text-outline-orange">PURPOSE.</span>
+            </h1>
+
+            <!-- Bio Narrative with Peach Highlight Pills -->
+            <p class="max-w-2xl sm:max-w-3xl mx-auto text-center text-slate-700 text-base sm:text-lg md:text-xl font-normal leading-relaxed sm:leading-loose mt-6 sm:mt-8 px-2">
+                I'm <strong class="font-semibold text-black">Orji Michael</strong>, a <strong class="font-semibold text-black">UI/UX Designer</strong> passionate about <span class="highlight-peach">turning ideas</span> into simple, <span class="highlight-peach">intuitive, and visually</span> engaging digital experiences. Combining <span class="highlight-peach">Sociology</span> (behavioral empathy) and an <span class="highlight-peach">MBA</span> (business strategy), I focus on understanding real problems and creating <span class="highlight-peach">thoughtful solutions</span> that feel natural to use.
+            </p>
+
+            <!-- Inline Physical Tape Badges (Visible on Laptops, Tablets & Phones < 1360px) -->
+            <div class="sticker-strip-inline">
+                <div class="sticker-badge-inline">
+                    SPECIALIZATION: UI/UX &bull; TOOLS: FIGMA
                 </div>
-                
-                <div class="flip-card blog-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=400&h=300&fit=crop" 
-                                 alt="User Research" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-6">
-                                <span class="text-yellow-400 text-sm font-bold">Research</span>
-                                <h3 class="text-xl font-bold mt-2 mb-2">Mastering User Research: A Complete Guide</h3>
-                                <p class="text-gray-400 text-sm">8 min read • Jan 2026</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-6 flex flex-col justify-center h-full">
-                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-                                    A comprehensive guide to conducting effective user research. Learn interview techniques, survey design, usability testing, and how to translate insights into actionable design decisions.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">User Research</span>
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Testing</span>
-                                </div>
-                                <a href="blog-user-research.html" class="text-yellow-400 font-bold hover:underline">
-                                    Read More <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flip-card blog-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?w=400&h=300&fit=crop" 
-                                 alt="UI Design Trends" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-6">
-                                <span class="text-yellow-400 text-sm font-bold">Trends</span>
-                                <h3 class="text-xl font-bold mt-2 mb-2">2026 UI Design Trends Shaping Digital Experiences</h3>
-                                <p class="text-gray-400 text-sm">6 min read • Jan 2026</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-6 flex flex-col justify-center h-full">
-                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-                                    Explore the latest UI design trends including glassmorphism, 3D elements, micro-interactions, and AI-powered personalization that are defining modern digital experiences.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">UI Trends</span>
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Innovation</span>
-                                </div>
-                                <a href="blog-ui-trends.html" class="text-yellow-400 font-bold hover:underline">
-                                    Read More <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flip-card blog-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=400&h=300&fit=crop" 
-                                 alt="Mobile First Design" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-6">
-                                <span class="text-yellow-400 text-sm font-bold">Mobile Design</span>
-                                <h3 class="text-xl font-bold mt-2 mb-2">Mobile-First Design: Why It Matters in 2026</h3>
-                                <p class="text-gray-400 text-sm">7 min read • Dec 2025</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-6 flex flex-col justify-center h-full">
-                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-                                    Understanding the importance of mobile-first approach in modern design. Learn best practices for responsive design, touch interactions, and optimizing for smaller screens.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Mobile Design</span>
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Responsive</span>
-                                </div>
-                                <a href="blog-mobile-first.html" class="text-yellow-400 font-bold hover:underline">
-                                    Read More <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flip-card blog-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=400&h=300&fit=crop" 
-                                 alt="Color Psychology" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-6">
-                                <span class="text-yellow-400 text-sm font-bold">Design Theory</span>
-                                <h3 class="text-xl font-bold mt-2 mb-2">Color Psychology in UI Design: A Designer's Guide</h3>
-                                <p class="text-gray-400 text-sm">5 min read • Dec 2025</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-6 flex flex-col justify-center h-full">
-                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-                                    How colors influence user behavior and emotions. Learn to choose the right color palette for your brand and create accessible, visually appealing interfaces.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Color Theory</span>
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Psychology</span>
-                                </div>
-                                <a href="blog-color-psychology.html" class="text-yellow-400 font-bold hover:underline">
-                                    Read More <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="flip-card blog-card">
-                    <div class="flip-card-inner">
-                        <div class="flip-card-front">
-                            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop" 
-                                 alt="Design Systems" 
-                                 class="w-full h-48 object-cover rounded-t-lg">
-                            <div class="p-6">
-                                <span class="text-yellow-400 text-sm font-bold">Best Practices</span>
-                                <h3 class="text-xl font-bold mt-2 mb-2">Building Scalable Design Systems from Scratch</h3>
-                                <p class="text-gray-400 text-sm">10 min read • Nov 2025</p>
-                            </div>
-                        </div>
-                        <div class="flip-card-back">
-                            <div class="p-6 flex flex-col justify-center h-full">
-                                <p class="text-gray-300 mb-4 text-sm leading-relaxed">
-                                    Create consistent, scalable design systems. Learn about component libraries, design tokens, documentation, and maintaining design consistency across products.
-                                </p>
-                                <div class="flex flex-wrap gap-2 mb-4">
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Design Systems</span>
-                                    <span class="text-xs bg-yellow-400 text-gray-900 px-3 py-1 rounded-full font-semibold">Components</span>
-                                </div>
-                                <a href="blog-design-systems.html" class="text-yellow-400 font-bold hover:underline">
-                                    Read More <i class="fas fa-arrow-right ml-1"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                <div class="sticker-badge-inline">
+                    I SOLVE PROBLEMS THROUGH DESIGN
                 </div>
             </div>
+
+            <!-- Hero Action Buttons (Fully Responsive on All Devices) -->
+            <div class="flex flex-col sm:flex-row items-stretch sm:items-center justify-center gap-3 sm:gap-4 mt-8 sm:mt-10 w-full max-w-xs sm:max-w-none mx-auto">
+                <a href="#projects" class="btn-orange text-xs sm:text-sm py-3.5 px-7 sm:px-8 justify-center">
+                    <span>EXPLORE SELECTED WORKS</span>
+                    <i class="fas fa-arrow-down text-xs"></i>
+                </a>
+                <button onclick="openResumeModal()" class="btn-dark text-xs sm:text-sm py-3.5 px-6 sm:px-7 justify-center">
+                    <i class="fas fa-file-pdf text-accentOrange mr-1"></i>
+                    <span>DOWNLOAD CV</span>
+                </button>
+            </div>
+
+            <!-- Architectural Metrics Strip -->
+            <div class="grid grid-cols-3 gap-2 sm:gap-6 pt-8 sm:pt-12 mt-8 sm:mt-12 border-t border-black/10 max-w-xl mx-auto">
+                <div class="text-center px-1 sm:px-3">
+                    <span class="block font-headline text-3xl sm:text-5xl text-black counter" data-target="3">0</span>
+                    <span class="text-[9px] sm:text-xs text-slate-500 font-mono tracking-tight uppercase block mt-1 leading-tight">Years Craft</span>
+                </div>
+                <div class="text-center px-1 sm:px-3 border-x border-black/10">
+                    <span class="block font-headline text-3xl sm:text-5xl text-accentOrange counter" data-target="14">0</span>
+                    <span class="text-[9px] sm:text-xs text-slate-500 font-mono tracking-tight uppercase block mt-1 leading-tight">Figma Systems</span>
+                </div>
+                <div class="text-center px-1 sm:px-3">
+                    <span class="block font-headline text-3xl sm:text-5xl text-black counter" data-target="6">0</span>
+                    <span class="text-[9px] sm:text-xs text-slate-500 font-mono tracking-tight uppercase block mt-1 leading-tight">Production Apps</span>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gray-800 relative overflow-hidden">
-        <!-- Floating Shapes -->
-        <div class="floating-shape" style="top: 10%; left: 5%; animation-delay: 0.5s;">
-            <div class="shape-circle bg-yellow-400"></div>
-        </div>
-        <div class="floating-shape" style="bottom: 10%; right: 5%; animation-delay: 1s;">
-            <div class="shape-hexagon bg-green-400"></div>
-        </div>
-        
-        <div class="container mx-auto px-6 relative z-10">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl md:text-5xl font-bold mb-4">Get In Touch</h2>
-                <p class="text-gray-400 text-lg">Let's work together on your next project</p>
-            </div>
+    <!-- =========================================================================
+         SERVICES & CAPABILITIES SECTION (DARK CARD FROM REFERENCE)
+         ========================================================================= -->
+    <section id="services" class="py-24 sm:py-32 relative border-b border-black/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
             
-            <div class="max-w-4xl mx-auto">
-                <div class="grid md:grid-cols-2 gap-12">
-                    <!-- Contact Info -->
-                    <div class="space-y-6">
-                        <h3 class="text-2xl font-bold mb-6">Contact Information</h3>
-                        
-                        <div class="flex items-start space-x-4">
-                            <i class="fas fa-envelope text-yellow-400 text-2xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold mb-1">Email</h4>
-                                <a href="mailto:Orjiezechisom82@gmail.com" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                                    Orjiezechisom82@gmail.com
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <i class="fas fa-phone text-yellow-400 text-2xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold mb-1">Phone</h4>
-                                <a href="https://wa.me/2347061646747" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                                    07061646747
-                                </a>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-start space-x-4">
-                            <i class="fas fa-map-marker-alt text-yellow-400 text-2xl mt-1"></i>
-                            <div>
-                                <h4 class="font-bold mb-1">Location</h4>
-                                <p class="text-gray-400">Fadeyi, Yaba, Lagos State</p>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Contact Form -->
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Editorial Headline & Designer Portrait -->
+                <div class="lg:col-span-6 space-y-8">
                     <div>
-                        <form id="contact-form" class="space-y-6">
-                            <div class="form-group">
-                                <label for="name" class="block text-sm font-bold mb-2 text-gray-300">
-                                    <i class="fas fa-user mr-2 text-yellow-400"></i>Your Name
-                                </label>
-                                <input type="text" id="name" name="name" required
-                                       placeholder="Enter your full name"
-                                       class="form-input">
+                        <span class="badge-pill mb-4">SERVICES & DISCIPLINES</span>
+                        <h2 class="font-headline text-6xl sm:text-8xl text-ink leading-none uppercase">
+                            MORE CLARITY.<br>
+                            <span class="text-outline-dark">BETTER EXPERIENCES.</span>
+                        </h2>
+                        <p class="text-slate-600 text-base sm:text-lg mt-6 leading-relaxed max-w-lg">
+                            Design is not decoration — it is communication, psychology, and business execution. Here are the core pillars I deliver across every product cycle.
+                        </p>
+                    </div>
+
+                    <!-- Designer Portrait Showcase Card -->
+                    <div class="relative bg-white border border-black/10 rounded-2xl p-6 flex flex-col sm:flex-row items-center gap-6 max-w-lg">
+                        <div class="w-32 h-36 rounded-xl overflow-hidden bg-slate-100 border border-black/10 flex-shrink-0">
+                            <img src="Modern_portrait_with_futuristic_backdrop-removebg-preview.png" alt="Orji Michael" class="w-full h-full object-cover object-top">
+                        </div>
+                        <div class="space-y-2 text-left">
+                            <span class="text-xs font-mono text-accentOrange font-semibold uppercase tracking-wider block">THE DESIGN STRATEGIST</span>
+                            <h3 class="font-bold text-lg text-ink">Orji Michael</h3>
+                            <p class="text-xs text-slate-500 leading-relaxed font-mono">
+                                B.Sc. Sociology &bull; MBA Business Administration &bull; UI/UX Certified (Techcrush & Geneza)
+                            </p>
+                            <div class="pt-2">
+                                <span class="inline-flex items-center gap-1.5 text-xs font-mono text-emerald-600 font-semibold">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Available for Q2/Q3 Projects
+                                </span>
                             </div>
-                            
-                            <div class="form-group">
-                                <label for="email" class="block text-sm font-bold mb-2 text-gray-300">
-                                    <i class="fas fa-envelope mr-2 text-yellow-400"></i>Email Address
-                                </label>
-                                <input type="email" id="email" name="email" required
-                                       placeholder="your.email@example.com"
-                                       class="form-input">
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="message" class="block text-sm font-bold mb-2 text-gray-300">
-                                    <i class="fas fa-comment-dots mr-2 text-yellow-400"></i>Your Message
-                                </label>
-                                <textarea id="message" name="message" rows="5" required
-                                          placeholder="Tell me about your project..."
-                                          class="form-input resize-none"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="btn-primary w-full text-lg py-4">
-                                <i class="fas fa-paper-plane mr-2"></i>Send Message
-                            </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Right: The Dark Capabilities Card (Exact Copy of Reference) -->
+                <div class="lg:col-span-6">
+                    <div class="dark-capabilities-card">
+                        <div class="mb-4 pb-4 border-b border-white/10 flex items-center justify-between">
+                            <span class="font-mono text-xs text-accentOrange uppercase tracking-wider font-semibold">DESIGN EXPERTISE</span>
+                            <span class="font-mono text-xs text-slate-400">06 CORE DISCIPLINES</span>
+                        </div>
+
+                        <!-- 01 UX RESEARCH -->
+                        <div class="capability-row group" onclick="document.getElementById('approach').scrollIntoView({behavior: 'smooth'})">
+                            <div>
+                                <h4 class="font-mono text-base sm:text-lg font-bold capability-title tracking-wide">01 UX RESEARCH</h4>
+                                <p class="text-xs text-slate-400 font-mono mt-1">UNDERSTANDING USERS, PROBLEMS, GOALS, AND OPPORTUNITIES.</p>
+                            </div>
+                            <span class="capability-arrow font-mono">↗</span>
+                        </div>
+
+                        <!-- 02 USER FLOWS -->
+                        <div class="capability-row group" onclick="document.getElementById('approach').scrollIntoView({behavior: 'smooth'})">
+                            <div>
+                                <h4 class="font-mono text-base sm:text-lg font-bold capability-title tracking-wide">02 USER FLOWS</h4>
+                                <p class="text-xs text-slate-400 font-mono mt-1">CREATING CLEAR AND LOGICAL JOURNEYS THAT GUIDE USERS EFFORTLESSLY.</p>
+                            </div>
+                            <span class="capability-arrow font-mono">↗</span>
+                        </div>
+
+                        <!-- 03 WIREFRAMING -->
+                        <div class="capability-row group" onclick="document.getElementById('approach').scrollIntoView({behavior: 'smooth'})">
+                            <div>
+                                <h4 class="font-mono text-base sm:text-lg font-bold capability-title tracking-wide">03 WIREFRAMING</h4>
+                                <p class="text-xs text-slate-400 font-mono mt-1">BUILDING THE STRUCTURE AND FOUNDATION BEFORE VISUAL DESIGN.</p>
+                            </div>
+                            <span class="capability-arrow font-mono">↗</span>
+                        </div>
+
+                        <!-- 04 UI DESIGN -->
+                        <div class="capability-row group" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
+                            <div>
+                                <h4 class="font-mono text-base sm:text-lg font-bold capability-title tracking-wide">04 UI DESIGN</h4>
+                                <p class="text-xs text-slate-400 font-mono mt-1">CREATING CLEAN, MODERN INTERFACES WITH STRONG VISUAL HIERARCHY.</p>
+                            </div>
+                            <span class="capability-arrow font-mono">↗</span>
+                        </div>
+
+                        <!-- 05 PROTOTYPING -->
+                        <div class="capability-row group" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
+                            <div>
+                                <h4 class="font-mono text-base sm:text-lg font-bold capability-title tracking-wide">05 PROTOTYPING</h4>
+                                <p class="text-xs text-slate-400 font-mono mt-1">TURNING STATIC SCREENS INTO REALISTIC INTERACTIVE EXPERIENCES.</p>
+                            </div>
+                            <span class="capability-arrow font-mono">↗</span>
+                        </div>
+
+                        <!-- 06 DESIGN SYSTEMS -->
+                        <div class="capability-row group" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">
+                            <div>
+                                <h4 class="font-mono text-base sm:text-lg font-bold capability-title tracking-wide">06 DESIGN SYSTEMS</h4>
+                                <p class="text-xs text-slate-400 font-mono mt-1">CREATING REUSABLE COMPONENTS AND SCALABLE DESIGN SYSTEMS.</p>
+                            </div>
+                            <span class="capability-arrow font-mono">↗</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900 py-8 border-t border-gray-800">
-        <div class="container mx-auto px-6">
-            <div class="text-center">
-                <p class="text-gray-400">
-                    &copy; 2026 Orji Michael. All rights reserved.
+    <!-- =========================================================================
+         "MY APPROACH" SECTION (MATCHING REFERENCE IMAGE)
+         ========================================================================= -->
+    <section id="approach" class="py-24 sm:py-32 relative blueprint-grid border-b border-black/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <!-- Section Header -->
+            <div class="mb-6">
+                <span class="badge-pill">MY APPROACH</span>
+            </div>
+
+            <!-- Big Bold Headline & Quote (Exact Copy of Reference) -->
+            <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-16">
+                <h2 class="font-headline text-5xl sm:text-7xl lg:text-8xl text-ink leading-none uppercase max-w-xl">
+                    GOOD DESIGN SHOULD<br>FEEL SIMPLE.
+                </h2>
+                
+                <p class="text-lg sm:text-2xl text-slate-600 max-w-lg leading-relaxed font-normal">
+                    <strong class="text-black font-semibold">Great design</strong> is not about adding more. It's about knowing what to keep, <span class="underline decoration-slate-300 underline-offset-4">what to remove</span>, and what deserves the <span class="highlight-orange-text">user's attention.</span>
                 </p>
-                <div class="mt-4 flex justify-center space-x-6">
-                    <a href="https://linkedin.com/in/chisom-orji-30aa45230" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                        <i class="fab fa-linkedin text-2xl"></i>
+            </div>
+
+            <!-- Numbered Approach Cards Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                
+                <!-- 01 SIMPLICITY -->
+                <div class="approach-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="approach-number">01</span>
+                            <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-700">
+                                <i class="fas fa-shapes text-sm"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-mono text-base font-bold text-ink uppercase tracking-wide mb-2">SIMPLICITY</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Removing visual clutter and cognitive obstacles so users accomplish their goals seamlessly.
+                        </p>
+                    </div>
+                    <span class="text-[11px] font-mono text-accentOrange mt-6 block uppercase font-semibold">Clarity First</span>
+                </div>
+
+                <!-- 02 INTUITION -->
+                <div class="approach-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="approach-number">02</span>
+                            <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-700">
+                                <i class="fas fa-fingerprint text-sm"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-mono text-base font-bold text-ink uppercase tracking-wide mb-2">INTUITION</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Crafting patterns so natural that users understand how to interact without needing a manual.
+                        </p>
+                    </div>
+                    <span class="text-[11px] font-mono text-accentOrange mt-6 block uppercase font-semibold">Zero Friction</span>
+                </div>
+
+                <!-- 03 PURPOSE -->
+                <div class="approach-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="approach-number">03</span>
+                            <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-700">
+                                <i class="fas fa-bullseye text-sm"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-mono text-base font-bold text-ink uppercase tracking-wide mb-2">PURPOSE</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Grounded in sociological research to guarantee every screen solves a genuine human pain point.
+                        </p>
+                    </div>
+                    <span class="text-[11px] font-mono text-accentOrange mt-6 block uppercase font-semibold">Sociology Grounded</span>
+                </div>
+
+                <!-- 04 SCALABILITY -->
+                <div class="approach-card">
+                    <div>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="approach-number">04</span>
+                            <div class="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-700">
+                                <i class="fas fa-layer-group text-sm"></i>
+                            </div>
+                        </div>
+                        <h3 class="font-mono text-base font-bold text-ink uppercase tracking-wide mb-2">SCALABILITY</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed">
+                            Building modular design tokens and atomic components that adapt as products expand.
+                        </p>
+                    </div>
+                    <span class="text-[11px] font-mono text-accentOrange mt-6 block uppercase font-semibold">Systems Architecture</span>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         SELECTED WORKS & CASE STUDIES
+         ========================================================================= -->
+    <section id="projects" class="py-24 sm:py-32 relative border-b border-black/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div>
+                    <span class="badge-pill mb-3">CURATED PORTFOLIO</span>
+                    <h2 class="font-headline text-5xl sm:text-7xl lg:text-8xl text-ink leading-none uppercase">
+                        SELECTED WORKS.
+                    </h2>
+                    <p class="text-slate-600 text-base sm:text-lg mt-3 max-w-xl">
+                        A showcase of live commercial client platforms in production and comprehensive Figma design systems.
+                    </p>
+                </div>
+
+                <!-- Filter Pills (Responsive Swipe Bar on Mobile) -->
+                <div class="filter-bar-responsive w-full md:w-auto" id="portfolio-filter-group">
+                    <button class="filter-btn active" data-filter="all">ALL (20)</button>
+                    <button class="filter-btn" data-filter="client">CLIENT APPS (6)</button>
+                    <button class="filter-btn" data-filter="mobile">MOBILE & FINTECH (7)</button>
+                    <button class="filter-btn" data-filter="web">WEB & SAAS (7)</button>
+                </div>
+            </div>
+
+            <!-- Client Projects Showcase -->
+            <div class="mb-20">
+                <div class="flex items-center justify-between mb-6 pb-3 border-b border-black/10">
+                    <h3 class="font-headline text-2xl sm:text-3xl text-ink tracking-wide uppercase flex items-center gap-2">
+                        <span>LIVE CLIENT PLATFORMS</span>
+                        <span class="badge-pill text-[10px] text-emerald-600 border-emerald-300 bg-emerald-50">PRODUCTION VERIFIED</span>
+                    </h3>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8" id="client-projects-grid">
+                    <!-- Injected by script.js -->
+                </div>
+            </div>
+
+            <!-- Personal Projects Showcase -->
+            <div>
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-3 border-b border-black/10">
+                    <h3 class="font-headline text-2xl sm:text-3xl text-ink tracking-wide uppercase">
+                        FIGMA DESIGN SYSTEMS & PROTOTYPES
+                    </h3>
+                    <a href="https://www.figma.com/design/Eebya5kWHMeaG3CeEDU3U3/Project?node-id=0-1&t=UxhblJqhVqPGoAim-1" target="_blank" rel="noopener noreferrer" class="btn-dark text-xs py-2 px-4 self-start sm:self-auto min-h-[42px]">
+                        <i class="fab fa-figma text-accentOrange mr-1.5"></i> Open Master Figma File
                     </a>
-                    <a href="https://www.instagram.com/loordwhite?igsh=NTBrMG4xajkxYXhs" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                        <i class="fab fa-instagram text-2xl"></i>
+                </div>
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6" id="personal-projects-grid">
+                    <!-- Injected by script.js -->
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         CAREER RESUME / TIMELINE SECTION
+         ========================================================================= -->
+    <section id="resume" class="py-24 sm:py-32 relative blueprint-grid border-b border-black/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="badge-pill mb-3">PROFESSIONAL TRAJECTORY</span>
+                <h2 class="font-headline text-5xl sm:text-7xl lg:text-8xl text-ink leading-none uppercase">
+                    CAREER & CREDENTIALS.
+                </h2>
+                <p class="text-slate-600 text-base sm:text-lg mt-3">
+                    A multi-disciplinary background combining banking operations, sociology, and MBA strategy.
+                </p>
+
+                <!-- Navigation Tabs (Touch-Friendly Responsive) -->
+                <div class="flex items-center justify-center gap-1.5 sm:gap-2 mt-8 p-1.5 rounded-full bg-white border border-black/10 max-w-md mx-auto">
+                    <button class="filter-btn active flex-1 text-[11px] sm:text-xs py-2.5 px-3 justify-center" id="tab-btn-exp" data-tab="experience">EXPERIENCE</button>
+                    <button class="filter-btn flex-1 text-[11px] sm:text-xs py-2.5 px-3 justify-center" id="tab-btn-edu" data-tab="education">EDUCATION</button>
+                    <button class="filter-btn flex-1 text-[11px] sm:text-xs py-2.5 px-3 justify-center" id="tab-btn-cert" data-tab="certifications">CERTS</button>
+                </div>
+            </div>
+
+            <!-- Tab Content: Experience -->
+            <div id="tab-content-experience" class="max-w-4xl mx-auto space-y-6">
+                
+                <div class="bg-white border border-black/10 rounded-2xl p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bold text-lg text-ink">Branch Executive Officer</h3>
+                        <span class="font-mono text-xs text-accentOrange bg-accentOrange/10 px-3 py-1 rounded-full font-semibold w-fit">July 2023 – Present</span>
+                    </div>
+                    <p class="text-slate-500 font-mono text-xs mb-3">United Bank for Africa (UBA) &bull; Ikeja, Lagos, Nigeria</p>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        Coordinated administrative workflows for a high-traffic branch supporting 30–50+ customer interactions daily. Prepared operational analytics, improving reporting accuracy by 20–25%.
+                    </p>
+                </div>
+
+                <div class="bg-white border border-black/10 rounded-2xl p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bold text-lg text-ink">Administrative & Virtual Assistant</h3>
+                        <span class="font-mono text-xs text-slate-600 bg-slate-100 px-3 py-1 rounded-full font-semibold w-fit">Mar 2021 – Nov 2022</span>
+                    </div>
+                    <p class="text-slate-500 font-mono text-xs mb-3">BlueEdge Consult &bull; Remote</p>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        Managed executive scheduling and cloud document architecture, optimizing document retrieval time by approximately 30%.
+                    </p>
+                </div>
+
+                <div class="bg-white border border-black/10 rounded-2xl p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bold text-lg text-ink">Teacher & Instructional Designer</h3>
+                        <span class="font-mono text-xs text-slate-600 bg-slate-100 px-3 py-1 rounded-full font-semibold w-fit">Jan 2023 – Oct 2023</span>
+                    </div>
+                    <p class="text-slate-500 font-mono text-xs mb-3">Ejivic College &bull; Ilorin, Kwara State</p>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        Delivered structured instructional content to classes of 25–40 students, developing pedagogical evaluations that elevated student comprehension.
+                    </p>
+                </div>
+
+                <div class="bg-white border border-black/10 rounded-2xl p-6 sm:p-8">
+                    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-2">
+                        <h3 class="font-bold text-lg text-ink">Customer Support Specialist</h3>
+                        <span class="font-mono text-xs text-slate-600 bg-slate-100 px-3 py-1 rounded-full font-semibold w-fit">May 2019 – Dec 2020</span>
+                    </div>
+                    <p class="text-slate-500 font-mono text-xs mb-3">3nity Wears &bull; Abakaliki, Ebonyi State</p>
+                    <p class="text-slate-700 text-sm leading-relaxed">
+                        Handled 20–40+ retail customer interactions daily, diagnosing issues efficiently and improving repeat customer retention.
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Tab Content: Education (Hidden by default) -->
+            <div id="tab-content-education" class="max-w-4xl mx-auto space-y-6 hidden">
+                <div class="grid sm:grid-cols-2 gap-6">
+                    <div class="bg-white border border-black/10 rounded-2xl p-8">
+                        <span class="font-mono text-xs text-accentOrange font-bold">GRADUATED 2024</span>
+                        <h3 class="font-headline text-2xl text-ink mt-2 mb-1">Masters in Business Administration (MBA)</h3>
+                        <p class="text-slate-500 font-mono text-xs">Ajayi Crowther University</p>
+                        <p class="text-slate-700 text-sm mt-3 leading-relaxed">
+                            Focus on business strategy, operational management, consumer behavior, and financial return on product investment.
+                        </p>
+                    </div>
+                    <div class="bg-white border border-black/10 rounded-2xl p-8">
+                        <span class="font-mono text-xs text-accentOrange font-bold">GRADUATED 2021</span>
+                        <h3 class="font-headline text-2xl text-ink mt-2 mb-1">Bachelor of Science in Sociology</h3>
+                        <p class="text-slate-500 font-mono text-xs">Alex Ekwueme Federal University</p>
+                        <p class="text-slate-700 text-sm mt-3 leading-relaxed">
+                            Foundational study of human social dynamics, qualitative research, empathy modeling, and behavioral demographics.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tab Content: Certifications (Hidden by default) -->
+            <div id="tab-content-certifications" class="max-w-4xl mx-auto space-y-6 hidden">
+                <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="bg-white border border-black/10 rounded-2xl p-6">
+                        <i class="fas fa-certificate text-accentOrange text-xl mb-2"></i>
+                        <h4 class="font-bold text-sm text-ink">UI/UX Design Certificate</h4>
+                        <p class="text-slate-500 font-mono text-xs mt-1">Techcrush &bull; 2025</p>
+                    </div>
+                    <div class="bg-white border border-black/10 rounded-2xl p-6">
+                        <i class="fab fa-figma text-accentOrange text-xl mb-2"></i>
+                        <h4 class="font-bold text-sm text-ink">UI/UX Design with Figma</h4>
+                        <p class="text-slate-500 font-mono text-xs mt-1">Udemy &bull; 2022</p>
+                    </div>
+                    <div class="bg-white border border-black/10 rounded-2xl p-6">
+                        <i class="fas fa-award text-accentOrange text-xl mb-2"></i>
+                        <h4 class="font-bold text-sm text-ink">UI/UX Design Certificate</h4>
+                        <p class="text-slate-500 font-mono text-xs mt-1">Geneza School of Design &bull; 2022</p>
+                    </div>
+                    <div class="bg-white border border-black/10 rounded-2xl p-6">
+                        <i class="fas fa-user-group text-accentOrange text-xl mb-2"></i>
+                        <h4 class="font-bold text-sm text-ink">Human Resource Management</h4>
+                        <p class="text-slate-500 font-mono text-xs mt-1">University of Ibadan &bull; 2022</p>
+                    </div>
+                    <div class="bg-white border border-black/10 rounded-2xl p-6">
+                        <i class="fas fa-landmark text-accentOrange text-xl mb-2"></i>
+                        <h4 class="font-bold text-sm text-ink">Public Administration</h4>
+                        <p class="text-slate-500 font-mono text-xs mt-1">Chartered Inst. of Local Govt &bull; 2022</p>
+                    </div>
+                    <div class="bg-white border border-black/10 rounded-2xl p-6">
+                        <i class="fas fa-globe text-accentOrange text-xl mb-2"></i>
+                        <h4 class="font-bold text-sm text-ink">TEFL Certificate (120 Hours)</h4>
+                        <p class="text-slate-500 font-mono text-xs mt-1">2022</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CV Download Banner -->
+            <div class="mt-12 text-center">
+                <button onclick="openResumeModal()" class="btn-orange btn-responsive-mobile text-xs sm:text-sm py-3.5 px-8 max-w-sm sm:max-w-none mx-auto">
+                    <i class="fas fa-file-pdf mr-2"></i> VIEW & DOWNLOAD OFFICIAL CV (PDF)
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         CLIENT REVIEWS / TESTIMONIALS
+         ========================================================================= -->
+    <section class="py-24 sm:py-32 relative border-b border-black/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="badge-pill mb-3">CLIENT FEEDBACK</span>
+                <h2 class="font-headline text-5xl sm:text-7xl lg:text-8xl text-ink leading-none uppercase">
+                    WHAT FOUNDERS SAY.
+                </h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <div class="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-accentOrange mb-4 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-base sm:text-lg italic leading-relaxed mb-6">
+                            "Working with you was a great experience. You took time to understand our goals and translated them into a clean, user-friendly design. The final result was intuitive, visually appealing, and aligned perfectly with our brand."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-black/5">
+                        <img src="https://ui-avatars.com/api/?name=Adebayo+Johnson&background=FF5500&color=ffffff&size=128&bold=true" alt="Adebayo Johnson" class="w-11 h-11 rounded-full border border-black/10">
+                        <div>
+                            <h4 class="font-bold text-sm text-ink">Adebayo Johnson</h4>
+                            <p class="text-xs text-slate-500 font-mono">CEO &bull; Med Track Healthcare</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-accentOrange mb-4 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-base sm:text-lg italic leading-relaxed mb-6">
+                            "Thank You for doing this for me. You are too kind. You took this so personal. You are so good at what you do."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-black/5">
+                        <img src="https://ui-avatars.com/api/?name=Chioma+Okafor&background=FF5500&color=ffffff&size=128&bold=true" alt="Chioma Okafor" class="w-11 h-11 rounded-full border border-black/10">
+                        <div>
+                            <h4 class="font-bold text-sm text-ink">Chioma Okafor</h4>
+                            <p class="text-xs text-slate-500 font-mono">Owner &bull; Zuch Royal Food</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-accentOrange mb-4 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-base sm:text-lg italic leading-relaxed mb-6">
+                            "What stood out most was your attention to detail. Every screen felt intentional and well thought out. The final design was clean, consistent, and user-friendly."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-black/5">
+                        <img src="https://ui-avatars.com/api/?name=Emeka+Nwosu&background=FF5500&color=ffffff&size=128&bold=true" alt="Emeka Nwosu" class="w-11 h-11 rounded-full border border-black/10">
+                        <div>
+                            <h4 class="font-bold text-sm text-ink">Emeka Nwosu</h4>
+                            <p class="text-xs text-slate-500 font-mono">Founder &bull; Clothes Store</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white border border-black/10 rounded-2xl p-8 sm:p-10 flex flex-col justify-between">
+                    <div>
+                        <div class="flex items-center gap-1 text-accentOrange mb-4 text-xs">
+                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                        </div>
+                        <p class="text-slate-700 text-base sm:text-lg italic leading-relaxed mb-6">
+                            "From the initial concept to the final design, you were professional, responsive, and easy to work with. The design exceeded our expectations and clearly improved usability and clarity for our users."
+                        </p>
+                    </div>
+                    <div class="flex items-center gap-4 pt-4 border-t border-black/5">
+                        <img src="https://ui-avatars.com/api/?name=Ngozi+Adekunle&background=FF5500&color=ffffff&size=128&bold=true" alt="Ngozi Adekunle" class="w-11 h-11 rounded-full border border-black/10">
+                        <div>
+                            <h4 class="font-bold text-sm text-ink">Ngozi Adekunle</h4>
+                            <p class="text-xs text-slate-500 font-mono">Manager &bull; Electronic Store</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         INSIGHTS & PUBLICATIONS (BLOG)
+         ========================================================================= -->
+    <section class="py-24 sm:py-32 relative blueprint-grid border-b border-black/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-8">
+            
+            <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+                <div>
+                    <span class="badge-pill mb-3">ARTICLES & WRITINGS</span>
+                    <h2 class="font-headline text-5xl sm:text-7xl lg:text-8xl text-ink leading-none uppercase">
+                        DESIGN INSIGHTS.
+                    </h2>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                
+                <a href="blog-design-thinking.html" class="bg-white border border-black/10 rounded-2xl overflow-hidden group transition-all flex flex-col">
+                    <div class="h-44 overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&h=400&fit=crop" alt="Design Thinking" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="font-mono text-xs text-accentOrange font-semibold">5 MIN READ</span>
+                            <h3 class="font-bold text-lg text-ink mt-2 mb-2 group-hover:text-accentOrange transition-colors">The Power of Design Thinking in Product Development</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">Empathize, Define, Ideate, Prototype, and Test frameworks for scalable products.</p>
+                        </div>
+                        <span class="font-mono text-xs text-ink font-semibold mt-4 block">Read Article ↗</span>
+                    </div>
+                </a>
+
+                <a href="blog-user-research.html" class="bg-white border border-black/10 rounded-2xl overflow-hidden group transition-all flex flex-col">
+                    <div class="h-44 overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1586717791821-3f44a563fa4c?w=600&h=400&fit=crop" alt="User Research" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="font-mono text-xs text-accentOrange font-semibold">8 MIN READ</span>
+                            <h3 class="font-bold text-lg text-ink mt-2 mb-2 group-hover:text-accentOrange transition-colors">Mastering User Research: A Complete Guide</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">Qualitative user inquiry, interview structures, and extracting decisive design decisions.</p>
+                        </div>
+                        <span class="font-mono text-xs text-ink font-semibold mt-4 block">Read Article ↗</span>
+                    </div>
+                </a>
+
+                <a href="blog-design-systems.html" class="bg-white border border-black/10 rounded-2xl overflow-hidden group transition-all flex flex-col">
+                    <div class="h-44 overflow-hidden bg-slate-100">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop" alt="Design Systems" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="font-mono text-xs text-accentOrange font-semibold">10 MIN READ</span>
+                            <h3 class="font-bold text-lg text-ink mt-2 mb-2 group-hover:text-accentOrange transition-colors">Building Scalable Design Systems from Scratch</h3>
+                            <p class="text-slate-600 text-xs leading-relaxed">Atomic components, design tokens, and engineering handoff documentation.</p>
+                        </div>
+                        <span class="font-mono text-xs text-ink font-semibold mt-4 block">Read Article ↗</span>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         BOTTOM DARK SECTION (EXACT REFERENCE DESIGN: "BUILD" WATERMARK)
+         ========================================================================= -->
+    <section id="contact" class="bottom-dark-cta py-24 sm:py-32 relative">
+        
+        <!-- Giant Watermark Background Text -->
+        <div class="watermark-text" aria-hidden="true">BUILD</div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-8 relative z-10">
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Left: Headline & Social Links -->
+                <div class="lg:col-span-6 space-y-8">
+                    <div>
+                        <!-- Social Icons Row (Circular, Matching Reference) -->
+                        <div class="flex items-center gap-3 mb-8">
+                            <a href="https://linkedin.com/in/chisom-orji-30aa45230" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="LinkedIn">
+                                <i class="fab fa-linkedin-in text-sm"></i>
+                            </a>
+                            <a href="https://wa.me/2347061646747" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="WhatsApp">
+                                <i class="fab fa-whatsapp text-sm"></i>
+                            </a>
+                            <a href="https://www.instagram.com/loordwhite?igsh=NTBrMG4xajkxYXhs" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Instagram">
+                                <i class="fab fa-instagram text-sm"></i>
+                            </a>
+                            <a href="https://x.com/lordwhite02?s=21" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="X (Twitter)">
+                                <i class="fab fa-x-twitter text-sm"></i>
+                            </a>
+                            <a href="https://www.figma.com/design/Eebya5kWHMeaG3CeEDU3U3/Project?node-id=0-1&t=UxhblJqhVqPGoAim-1" target="_blank" rel="noopener noreferrer" class="social-icon-btn" title="Figma Work">
+                                <i class="fab fa-figma text-sm"></i>
+                            </a>
+                        </div>
+
+                        <!-- Big Headline (Matching Reference Image) -->
+                        <h2 class="font-headline text-6xl sm:text-8xl lg:text-[7rem] text-white leading-none uppercase">
+                            HAVE AN IDEA? LET'S<br>
+                            <span class="text-accentOrange">WORK TOGETHER.</span>
+                        </h2>
+
+                        <p class="text-slate-400 text-base sm:text-lg mt-6 leading-relaxed max-w-lg">
+                            Have a digital product in mind? Tell me about your goals and let's turn your idea into an exceptional, high-converting user experience.
+                        </p>
+                    </div>
+
+                    <!-- Direct Info Strip -->
+                    <div class="p-6 rounded-2xl bg-white/[0.03] border border-white/10 space-y-3 font-mono text-xs text-slate-300 max-w-lg">
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500">EMAIL:</span>
+                            <span class="text-white font-semibold flex items-center gap-2">
+                                Orjiezechisom82@gmail.com
+                                <button onclick="copyEmailToClipboard()" class="text-accentOrange hover:underline" title="Copy Email">
+                                    <i class="fas fa-copy"></i>
+                                </button>
+                            </span>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500">PHONE / WHATSAPP:</span>
+                            <a href="https://wa.me/2347061646747" target="_blank" rel="noopener noreferrer" class="text-accentOrange hover:underline font-semibold">+234 706 164 6747</a>
+                        </div>
+                        <div class="flex items-center justify-between">
+                            <span class="text-slate-500">LOCATION:</span>
+                            <span class="text-white">Fadeyi, Yaba, Lagos &bull; <span id="contact-clock" class="text-emerald-400 font-bold">--:--:-- WAT</span></span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right: Discovery Inquiry Form -->
+                <div class="lg:col-span-6 bg-white/[0.03] border border-white/10 rounded-2xl p-8 sm:p-10">
+                    <form id="contact-form" class="space-y-6">
+                        
+                        <!-- Project Scope Chips -->
+                        <div>
+                            <label class="block font-mono text-xs uppercase tracking-wider text-slate-400 mb-3">Project Specialization</label>
+                            <div class="flex flex-wrap gap-2" id="scope-chips">
+                                <span class="chip-selector selected" data-value="UI/UX Product Design">UI/UX Product Design</span>
+                                <span class="chip-selector" data-value="Mobile App Design">Mobile App</span>
+                                <span class="chip-selector" data-value="SaaS & Web App">SaaS & Web App</span>
+                                <span class="chip-selector" data-value="Figma Design System">Design System</span>
+                                <span class="chip-selector" data-value="Full Product Redesign">Full Redesign</span>
+                            </div>
+                        </div>
+
+                        <!-- Name & Email Inputs -->
+                        <div class="grid sm:grid-cols-2 gap-4">
+                            <div>
+                                <label for="name" class="block font-mono text-xs uppercase tracking-wider text-slate-400 mb-2">Your Name</label>
+                                <input type="text" id="name" name="name" required placeholder="John Doe" class="dark-form-input">
+                            </div>
+                            <div>
+                                <label for="email" class="block font-mono text-xs uppercase tracking-wider text-slate-400 mb-2">Email Address</label>
+                                <input type="email" id="email" name="email" required placeholder="john@example.com" class="dark-form-input">
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="message" class="block font-mono text-xs uppercase tracking-wider text-slate-400 mb-2">Tell me about your product</label>
+                            <textarea id="message" name="message" rows="4" required placeholder="Describe your product idea, target users, and timeline..." class="dark-form-input resize-none"></textarea>
+                        </div>
+
+                        <!-- Actions -->
+                        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2">
+                            <button type="submit" class="btn-orange btn-responsive-mobile flex-1 py-3.5 sm:py-4 text-xs sm:text-sm justify-center">
+                                <i class="fab fa-whatsapp text-lg mr-1.5"></i>
+                                <span>SEND INQUIRY VIA WHATSAPP</span>
+                            </button>
+                            <button type="button" onclick="sendViaEmail()" class="btn-dark btn-responsive-mobile py-3.5 sm:py-4 px-6 text-xs justify-center">
+                                <i class="fas fa-envelope mr-1.5 text-accentOrange"></i>
+                                <span>SEND VIA EMAIL</span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+
+            <!-- Footer Bottom Strip -->
+            <div class="pt-16 mt-16 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs font-mono text-slate-500 gap-4">
+                <p>&copy; 2026 Orji Michael &bull; Designed & Engineered with precision.</p>
+                <a href="#about" class="text-slate-400 hover:text-white transition-colors">BACK TO TOP ↑</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =========================================================================
+         RESUME / CV MODAL
+         ========================================================================= -->
+    <div id="resume-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="resume-modal-title">
+        <div class="modal-sheet max-w-lg p-8 relative">
+            <button onclick="closeResumeModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-ink transition-colors" aria-label="Close modal">
+                <i class="fas fa-times text-sm"></i>
+            </button>
+
+            <div class="text-center">
+                <div class="w-14 h-14 rounded-2xl bg-accentOrange/10 border border-accentOrange/20 flex items-center justify-center text-accentOrange text-2xl mx-auto mb-4">
+                    <i class="fas fa-file-pdf"></i>
+                </div>
+                <h3 id="resume-modal-title" class="font-headline text-3xl text-ink mb-2">ORJI MICHAEL &bull; CURRICULUM VITAE</h3>
+                <p class="text-slate-600 text-xs font-mono mb-6">
+                    Senior UI/UX Product Designer &bull; MBA &bull; B.Sc. Sociology
+                </p>
+
+                <div class="p-4 rounded-xl bg-slate-50 border border-black/5 text-left mb-6 space-y-2 text-xs font-mono text-slate-700">
+                    <div class="flex justify-between">
+                        <span class="text-slate-500">File Name:</span>
+                        <span>Orji_Chisom_UIUX_CV.pdf</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-500">Format:</span>
+                        <span>Official PDF Document</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-slate-500">Edition:</span>
+                        <span>2026 Updated</span>
+                    </div>
+                </div>
+
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <a href="Orji_Chisom_UIUX_CV.pdf" target="_blank" rel="noopener noreferrer" class="btn-dark flex-1 py-3 text-xs justify-center">
+                        <i class="fas fa-eye mr-1.5 text-accentOrange"></i> Preview Online
                     </a>
-                    <a href="https://x.com/lordwhite02?s=21" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                        <i class="fab fa-x-twitter text-2xl"></i>
-                    </a>
-                    <a href="https://www.behance.net/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                        <i class="fab fa-behance text-2xl"></i>
-                    </a>
-                    <a href="https://dribbble.com/" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-yellow-400 transition-colors">
-                        <i class="fab fa-dribbble text-2xl"></i>
+                    <a href="Orji_Chisom_UIUX_CV.pdf" download="Orji_Chisom_UIUX_CV.pdf" class="btn-orange flex-1 py-3 text-xs justify-center">
+                        <i class="fas fa-download mr-1.5"></i> Download PDF
                     </a>
                 </div>
             </div>
         </div>
-    </footer>
+    </div>
 
-    <!-- Resume Modal -->
-    <div id="resume-modal" class="modal">
-        <div class="modal-content" style="max-width: 600px;">
-            <div class="flex justify-between items-center mb-6">
-                <h3 class="text-2xl font-bold">Download Resume / CV</h3>
-                <button onclick="closeResumeModal()" class="text-3xl hover:text-yellow-400 transition-colors">
-                    &times;
-                </button>
+    <!-- =========================================================================
+         FULL-SCREEN PROJECT LIGHTBOX MODAL
+         ========================================================================= -->
+    <div id="project-lightbox" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="lightbox-title">
+        <div class="modal-sheet max-w-5xl h-[85vh] relative flex flex-col">
+            <!-- Header -->
+            <div class="px-6 py-4 border-b border-black/10 flex items-center justify-between bg-white">
+                <div class="flex items-center gap-3">
+                    <span id="lightbox-badge" class="badge-pill text-xs">Mobile App</span>
+                    <h3 id="lightbox-title" class="font-bold text-base sm:text-lg text-ink">Project Title</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a id="lightbox-figma-btn" href="#" target="_blank" rel="noopener noreferrer" class="btn-dark py-1.5 px-3 text-xs">
+                        <i class="fab fa-figma mr-1 text-accentOrange"></i> Inspect in Figma
+                    </a>
+                    <button onclick="closeLightbox()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-ink transition-colors" aria-label="Close Lightbox">
+                        <i class="fas fa-times text-sm"></i>
+                    </button>
+                </div>
             </div>
-            
-            <div class="text-center py-8">
-                <i class="fas fa-file-pdf text-yellow-400 text-6xl mb-6"></i>
-                <p class="text-gray-300 text-lg mb-8">Click the button below to download my complete CV</p>
-                <a href="Orji_Chisom_UIUX_CV.pdf" download="Orji_Chisom_UIUX_CV.pdf" class="btn-primary inline-block text-xl px-8 py-4">
-                    <i class="fas fa-download mr-2"></i> Download CV
-                </a>
+
+            <!-- Image Container -->
+            <div class="flex-1 overflow-auto p-4 sm:p-8 flex items-center justify-center bg-slate-900">
+                <img id="lightbox-img" src="" alt="Project Preview" class="max-w-full max-h-full object-contain rounded-lg">
+            </div>
+
+            <!-- Footer -->
+            <div class="px-6 py-3 border-t border-black/10 flex items-center justify-between bg-white text-xs font-mono text-slate-500">
+                <span>Use keyboard <kbd class="px-1.5 py-0.5 rounded bg-slate-100 text-ink font-sans">←</kbd> <kbd class="px-1.5 py-0.5 rounded bg-slate-100 text-ink font-sans">→</kbd> to navigate</span>
+                <div class="flex items-center gap-2">
+                    <button onclick="navigateLightbox(-1)" class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-ink" aria-label="Previous image">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <span id="lightbox-counter" class="text-ink font-bold">1 / 14</span>
+                    <button onclick="navigateLightbox(1)" class="p-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-ink" aria-label="Next image">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
-     
-            
-            <div class="text-center">
-                <a href="Orji_Chisom_UIUX_CV.pdf" download="Orji_Chisom_UIUX_CV.pdf" class="btn-primary inline-block">
-                    <i class="fas fa-download mr-2"></i> Download CV as PDF
-                </a>
+
+    <!-- =========================================================================
+         FULL-SCREEN LIVE SITE EMBED MODAL
+         ========================================================================= -->
+    <div id="live-site-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="live-modal-title">
+        <div class="modal-sheet max-w-6xl h-[92vh] relative flex flex-col">
+            <!-- Browser Header -->
+            <div class="px-6 py-3 border-b border-black/10 flex items-center justify-between bg-white">
+                <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-1.5">
+                        <span class="browser-dot bg-rose-400"></span>
+                        <span class="browser-dot bg-amber-400"></span>
+                        <span class="browser-dot bg-emerald-400"></span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span id="live-modal-badge" class="badge-pill text-[10px] text-emerald-600 border-emerald-300 bg-emerald-50">LIVE PRODUCTION</span>
+                        <h3 id="live-modal-title" class="font-bold text-sm sm:text-base text-ink">Project Title</h3>
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-2">
+                    <button onclick="refreshLiveModal()" class="browser-chrome-btn" title="Reload Frame">
+                        <i class="fas fa-rotate-right text-xs"></i>
+                    </button>
+                    <a id="live-modal-external-link" href="#" target="_blank" rel="noopener noreferrer" class="btn-orange py-1.5 px-3 text-xs" title="Open in new window">
+                        <span>Open in New Tab</span>
+                        <i class="fas fa-arrow-up-right-from-square text-[9px]"></i>
+                    </a>
+                    <button onclick="closeLiveModal()" class="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-500 hover:text-ink transition-colors ml-1" aria-label="Close Live Preview">
+                        <i class="fas fa-times text-sm"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Embedded Frame Body -->
+            <div class="flex-1 w-full h-full bg-white relative overflow-hidden">
+                <iframe id="live-modal-iframe" src="" class="w-full h-full border-none" sandbox="allow-scripts allow-same-origin allow-forms allow-popups" title="Live Site Preview"></iframe>
             </div>
         </div>
     </div>
 
+    <!-- Core Interactive JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
