@@ -676,7 +676,7 @@ function initScopeChips() {
         `_Sent via portfolio discovery form_`
       );
 
-      const whatsappUrl = `https://wa.me/2347061646747?text=${encodedMessage}`;
+      const whatsappUrl = `https://wa.me/2349040409504?text=${encodedMessage}`;
       window.open(whatsappUrl, '_blank');
       showToast('Opening WhatsApp with your inquiry...');
     });

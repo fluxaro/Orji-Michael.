@@ -1,6 +1,6 @@
-# Orji Michael — Senior UI/UX Product Designer Portfolio
+# Orji Michael — Junior UI/UX Product Designer Portfolio
 
-A high-performance, responsive editorial portfolio website for **Orji Michael** (Senior UI/UX Product Designer & Design Strategist).
+A high-performance, responsive editorial portfolio website for **Orji Michael** (Junior UI/UX Product Designer & Design Strategist).
 
 ## 🌟 Strategic Narrative: The "T-Shaped" Advantage
 
@@ -52,7 +52,7 @@ Orji combines a unique intersection of disciplines that sets him apart in the gl
 ## 📞 Contact Information
 
 - **Email**: Orjiezechisom82@gmail.com
-- **Phone / WhatsApp**: +234 706 164 6747
+- **Phone / WhatsApp**: +234 904 040 9504
 - **Location**: Fadeyi, Yaba, Lagos State, Nigeria (WAT / GMT+1)
 - **LinkedIn**: [chisom-orji-30aa45230](https://linkedin.com/in/chisom-orji-30aa45230)
 - **X (Twitter)**: [@lordwhite02](https://x.com/lordwhite02?s=21)
